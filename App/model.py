@@ -28,8 +28,10 @@
 import config as cf
 from DISClib.ADT import list as lt
 from DISClib.ADT import map as mp
+from DISClib.ADT import orderedmap as om
+from DISClib.ADT import graph as gp
 from DISClib.DataStructures import mapentry as me
-from DISClib.Algorithms.Sorting import shellsort as sa
+from DISClib.Algorithms.Sorting import mergesort as ms
 assert cf
 
 """
@@ -39,11 +41,39 @@ los mismos.
 
 # Construccion de modelos
 
+def initSkylines():
+  skylines = {
+    'airports': mp.newMap(numelements=10000, maptype='CHAINING', loadfactor=2.0),
+    'digraph': gp.newGraph(datastructure='ADJ_MATRIX', directed=True),
+    'undirected': gp.newGraph(datastructure='ADJ_LIST', directed=False),
+  }
+
+  return skylines
+
 # Funciones para agregar informacion al catalogo
+
+def addAirport(skylines, airport):
+  createAirport(skylines, airport)
+  gp.insertVertex(skylines['digraph'], airport['IATA'])
+  gp.insertVertex(skylines['undirected'], airport['IATA'])
+
+
+def addRoute(skylines, route):
+
+  gp.addEdge(skylines['digraph'], route['Departure'], route['Destination'], weight=route['distance_km'])
+
+  if gp.getEdge(skylines['digrapg'], route['Destination'], route['Departure']):
+    gp.addEdge(skylines['undirected'], route['Departure'], route['Destination'], weight=route['distance_km'])
 
 # Funciones para creacion de datos
 
+def createAirport(skylines, airport):
+  mp.put(skylines['airports'], airport['IATA'], airport)
+
 # Funciones de consulta
+
+def interconectionPoints(skylines):
+  pass
 
 # Funciones utilizadas para comparar elementos dentro de una lista
 

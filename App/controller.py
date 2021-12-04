@@ -51,14 +51,45 @@ def loadData(skylines, airportsFile, routesFile, citiesFile):
   for route in routesInput:
     model.addRoute(skylines, route)
 
-  for citie in citiesInput:
-    model.addCity(skylines, citie)
+  for city in citiesInput:
+    model.addCity(skylines, city)
 
 # Funciones de consulta sobre el catálogo
 
+#Req. 1
+
+"""
+AQUI REQUERIMIENTO 1
+"""
+
+#Req. 2
+
+"""
+AQUI REQUERIMIENTO 2
+"""
+
 #Req. 3
+
 def shortestRoute(skylines, city1, city2):
   return model.shortestRouteBetweenCities(skylines, city1, city2)
 
+#Req. 4
 
-#Req. 2
+"""
+AQUI REQUERIMIENTO 4
+"""
+
+#Req. 5
+
+def quantifyEffect(skylines, airportIATA):
+  return model.quantifyEffect(skylines, airportIATA)
+
+#Req. 6
+
+def shortestWebRoute(skylines, city1, city2):
+  return model.compareWebService(skylines, city1, city2)
+
+#Req. 6
+
+def viewGraphically(skylines):
+  model.viewGraphically(skylines)

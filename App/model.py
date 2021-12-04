@@ -23,9 +23,12 @@
  *
  * Dario Correal - Version inicial
  """
-
-
+import copy
+import os
 from math import radians, cos, sin, asin, sqrt, inf
+
+import folium
+
 import DISClib.Algorithms.Graphs.dijsktra as dj
 import config as cf
 from DISClib.ADT import list as lt
@@ -34,6 +37,9 @@ from DISClib.ADT import orderedmap as om
 from DISClib.ADT import graph as gp
 from DISClib.DataStructures import mapentry as me
 from DISClib.Algorithms.Sorting import mergesort as ms
+import requests
+import folium as fl
+
 assert cf
 
 """
@@ -41,76 +47,77 @@ Se define la estructura de un catálogo de videos. El catálogo tendrá dos list
 los mismos.
 """
 
+
 # Construccion de modelos
 
 def initSkylines():
-  skylines = {
-    'citiesLst': lt.newList('ARRAY_LIST'),
-    'citiesMap': mp.newMap(numelements=41000, maptype='CHAINING', loadfactor=4.0),
-    'airports': mp.newMap(numelements=41000, maptype='CHAINING', loadfactor=4.0),
-    'airportsByCoordinates': om.newMap(omaptype='RBT'),
-    'digraphAirportsLst': lt.newList('ARRAY_LIST'),
-    'digraph': gp.newGraph(datastructure='ADJ_LIST', directed=True),
-    'undirectedAirportsLst': lt.newList('ARRAY_LIST'),
-    'undirected': gp.newGraph(datastructure='ADJ_LIST', directed=False),
-  }
+  skylines = {}
+
+  skylines['airports'] = mp.newMap(numelements=9100, maptype='CHAINING', loadfactor=2.0)
+  skylines['airportsList'] = lt.newList('ARRAY_LIST')
+  skylines['airportsCoordinates'] = om.newMap(omaptype='RBT')
+
+  skylines['digraph'] = gp.newGraph(datastructure='ADJ_LIST', directed=True)
+  skylines['graph'] = gp.newGraph(datastructure='ADJ_LIST', directed=False)
+
+  skylines['citiesList'] = lt.newList('ARRAY_LIST')
+  skylines['cities'] = mp.newMap(numelements=41100, maptype='CHAINING', loadfactor=3.0)
 
   return skylines
+
 
 # Funciones para agregar informacion al catalogo
 
 def addAirport(skylines, airport):
   gp.insertVertex(skylines['digraph'], airport['IATA'])
-  lt.addLast(skylines['digraphAirportsLst'], airport)
+  gp.insertVertex(skylines['graph'], airport['IATA'])
+  lt.addLast(skylines['airportsList'], airport)
   mp.put(skylines['airports'], airport['IATA'], airport)
 
-  existingLng = om.get(skylines['airportsByCoordinates'], round(float(airport['Longitude']), 2))
+  coordinatesMap = skylines['airportsCoordinates']
 
-  if existingLng is not None:
-    existingLat = om.get(me.getValue(existingLng), round(float(airport['Latitude']), 2))
-    
-    if existingLat is not None:
-      airports = me.getValue(existingLat)
-      lt.addLast(airports, airport)
-    else:
-      airports = lt.newList('ARRAY_LIST')
-      lt.addLast(airports, airport)
-      om.put(me.getValue(existingLng), round(float(airport['Latitude']), 2), airports)
-  else:
-    latitudes = om.newMap(omaptype='RBT')
+  longitude = round(float(airport['Longitude']), 2)
+  latitude = round(float(airport['Latitude']), 2)
+  existingLongitude = om.get(coordinatesMap, longitude)
+
+  if existingLongitude is None:
+    latitudesMap = om.newMap(omaptype='RBT')
     airports = lt.newList('ARRAY_LIST')
     lt.addLast(airports, airport)
-    om.put(latitudes, round(float(airport['Latitude']), 2), airports)
-    om.put(skylines['airportsByCoordinates'], round(float(airport['Longitude']), 2), latitudes)
+    om.put(latitudesMap, latitude, airports)
+    om.put(coordinatesMap, longitude, latitudesMap)
+  else:
+    longitudesMap = me.getValue(existingLongitude)
+    existingLatitude = om.get(longitudesMap, latitude)
+
+    if existingLatitude is None:
+      airports = lt.newList('ARRAY_LIST')
+      lt.addLast(airports, airport)
+      om.put(longitudesMap, latitude, airports)
+    else:
+      airports = me.getValue(existingLatitude)
+      lt.addLast(airports, airport)
 
 
 def addRoute(skylines, route):
   gp.addEdge(skylines['digraph'], route['Departure'], route['Destination'], weight=float(route['distance_km']))
 
-  if gp.getEdge(skylines['digraph'], route['Destination'], route['Departure']):
-    if not gp.containsVertex(skylines['undirected'], route['Departure']):
-      gp.insertVertex(skylines['undirected'], route['Departure'])
-      lt.addLast(skylines['undirectedAirportsLst'], me.getValue(mp.get(skylines['airports'], route['Departure'])))
-
-    if not gp.containsVertex(skylines['undirected'], route['Destination']):
-      gp.insertVertex(skylines['undirected'], route['Destination'])
-      lt.addLast(skylines['undirectedAirportsLst'], me.getValue(mp.get(skylines['airports'], route['Destination'])))
-
-    gp.addEdge(skylines['undirected'], route['Departure'], route['Destination'], weight=float(route['distance_km']))
+  if gp.getEdge(skylines['digraph'], route['Destination'], route['Departure']) is not None:
+    gp.addEdge(skylines['graph'], route['Departure'], route['Destination'], weight=float(route['distance_km']))
 
 
 def addCity(skylines, city):
-  lt.addLast(skylines['citiesLst'], city)
-
-  existingCity = mp.get(skylines['citiesMap'], city['city_ascii'])
+  lt.addLast(skylines['citiesList'], city)
+  existingCity = mp.get(skylines['cities'], city['city_ascii'])
 
   if existingCity is None:
     cities = lt.newList('ARRAY_LIST')
     lt.addLast(cities, city)
-    mp.put(skylines['citiesMap'], city['city_ascii'], cities)
+    mp.put(skylines['cities'], city['city_ascii'], cities)
   else:
     cities = me.getValue(existingCity)
     lt.addLast(cities, city)
+
 
 # Funciones para creacion de datos
 
@@ -120,8 +127,9 @@ def addCity(skylines, city):
 #                  REQUERIMIENTO 1
 # ===================================================
 
-def interconectionPoints(skylines):
+def connectionPoints(skylines):
   pass
+
 
 # ===================================================
 #                  REQUERIMIENTO 2
@@ -135,61 +143,19 @@ def findClusters(skylines):
 # ===================================================
 
 def shortestRouteBetweenCities(skylines, firstCity, secondCity):
-  firstCities = mp.get(skylines['citiesMap'], firstCity)
+  firstCities = mp.get(skylines['cities'], firstCity)
 
-  if firstCities is None:
+  finalFirstCity = selectCity(firstCities)
+
+  lastCities = mp.get(skylines['cities'], secondCity)
+
+  finalLastCity = selectCity(lastCities)
+
+  if finalFirstCity is None or finalLastCity is None:
     return None
-  elif lt.size(me.getValue(firstCities)) > 1:
-    print('Ingresa un número según la ciudad de origen que deseas: ')
-    for cityPos in range(1, lt.size(me.getValue(firstCities)) + 1):
-      fiCity = lt.getElement(me.getValue(firstCities), cityPos)
-      print('\n===================================================', cityPos, '===================================================\n')
-      print('\tCiudad:', fiCity['city'])
-      print('\tCiudad ASCII:', fiCity['city_ascii'])
-      print('\tLatitud:', fiCity['lat'])
-      print('\tLongitud:', fiCity['lng'])
-      print('\tPaís:', fiCity['country'])
-      print('\tISO2:', fiCity['iso2'])
-      print('\tISO3:', fiCity['iso3'])
-      print('\tNombre Administrador:', fiCity['admin_name'])
-      print('\tCapital:', fiCity['capital'])
-      print('\tPoblación:', fiCity['population'])
-      print('\tID:', fiCity['id'])
-    
-    citySelected = input('\n> ')
-    finalFirstCity = lt.getElement(me.getValue(firstCities), int(citySelected))
-  else:
-    finalFirstCity = lt.getElement(me.getValue(firstCities), 1)
 
-
-  lastCities = mp.get(skylines['citiesMap'], secondCity)
-
-  if lastCities is None:
-    return None
-  elif lt.size(me.getValue(lastCities)) > 1:
-    print('Ingresa un número según la ciudad de destino que deseas: ')
-    for latsCityPos in range(1, lt.size(me.getValue(lastCities)) + 1):
-      fCity = lt.getElement(me.getValue(lastCities), latsCityPos)
-      print('\n===================================================', latsCityPos, '===================================================\n')
-      print('\tCiudad:', fCity['city'])
-      print('\tCiudad ASCII:', fCity['city_ascii'])
-      print('\tLatitud:', fCity['lat'])
-      print('\tLongitud:', fCity['lng'])
-      print('\tPaís:', fCity['country'])
-      print('\tISO2:', fCity['iso2'])
-      print('\tISO3:', fCity['iso3'])
-      print('\tNombre Administrador:', fCity['admin_name'])
-      print('\tCapital:', fCity['capital'])
-      print('\tPoblación:', fCity['population'])
-      print('\tID:', fCity['id'])
-    
-    citySelected = input('\n> ')
-    finalLastCity = lt.getElement(me.getValue(lastCities), int(citySelected))
-  else:
-    finalLastCity = lt.getElement(me.getValue(lastCities), 1)
-
-  firstAirport = findAirportNearToCity(skylines, finalFirstCity, 1)
-  lastAirport = findAirportNearToCity(skylines, finalLastCity, 1)
+  firstAirport = findAirportNearToCity(skylines, finalFirstCity, 1, True)
+  lastAirport = findAirportNearToCity(skylines, finalLastCity, 1, False)
 
   if firstAirport is None or lastAirport is None:
     return None
@@ -199,11 +165,11 @@ def shortestRouteBetweenCities(skylines, firstCity, secondCity):
   pathTo = dj.pathTo(search, lastAirport['airport']['IATA'])
 
   return [firstAirport, lastAirport, pathTo]
-    
+
 
 # Algoritmo de busqueda por coordenadas
 
-def findAirportNearToCity(skylines, city, numberOfSearch):
+def findAirportNearToCity(skylines, city, numberOfSearch, isDeparture):
   """
   Esta función retorna el aeropuerto más cercano a una ciudad dada
   y tambien retorna la distancia terrestre de ambos puntos geográficos.
@@ -214,8 +180,8 @@ def findAirportNearToCity(skylines, city, numberOfSearch):
     'distance': 0,
   }
 
-  degreesToLat = numberOfSearch * 0.09022 #Grados equivalentes a LATITUD equivalentes a 10km https://forest.moscowfsl.wsu.edu/fswepp/rc/kmlatcon.html
-  degreesToLng = numberOfSearch * 0.08983 #Grados equivalentes a LONGITUD equivalentes a 10km https://forest.moscowfsl.wsu.edu/fswepp/rc/kmlatcon.html
+  degreesToLat = numberOfSearch * 0.09022  # Grados equivalentes a LATITUD equivalentes a 10km https://forest.moscowfsl.wsu.edu/fswepp/rc/kmlatcon.html
+  degreesToLng = numberOfSearch * 0.08983  # Grados equivalentes a LONGITUD equivalentes a 10km https://forest.moscowfsl.wsu.edu/fswepp/rc/kmlatcon.html
 
   while info['airport'] is None:
     minLat = float(city['lat']) - degreesToLat
@@ -224,44 +190,53 @@ def findAirportNearToCity(skylines, city, numberOfSearch):
     maxLat = float(city['lat']) + degreesToLat
     maxLng = float(city['lng']) + degreesToLng
 
-    betweenLongitudes = om.values(skylines['airportsByCoordinates'], minLng, maxLng)
+    betweenLongitudes = om.values(skylines['airportsCoordinates'], minLng, maxLng)
 
     if lt.size(betweenLongitudes) == 0:
-      info = findAirportNearToCity(skylines, city, numberOfSearch + 1)
-    
+      info = findAirportNearToCity(skylines, city, numberOfSearch + 1, isDeparture)
+
     else:
       latitudes = lt.newList('ARRAY_LIST')
-      
+
       for latitudeMap in lt.iterator(betweenLongitudes):
         for latitude in lt.iterator(om.values(latitudeMap, minLat, maxLat)):
           for airport in lt.iterator(latitude):
             lt.addLast(latitudes, airport)
-      
+
       if lt.size(latitudes) == 0:
-        info = findAirportNearToCity(skylines, city, numberOfSearch + 1)
-      elif lt.size(latitudes) > 1:
-        info['airport'] = findClosest(latitudes, float(city['lat']), float(city['lng']), skylines['digraph'])
-        info['distance'] = haversine(float(info['airport']['Longitude']), float(info['airport']['Latitude']), float(city['lng']), float(city['lat']))
-      elif findClosest(latitudes, float(city['lat']), float(city['lng']), skylines['digraph']) is None:
-        info = findAirportNearToCity(skylines, city, numberOfSearch + 1)
+        info = findAirportNearToCity(skylines, city, numberOfSearch + 1, isDeparture)
+      elif lt.size(latitudes) > 1 and findClosest(latitudes, float(city['lat']), float(city['lng']), skylines['digraph'], isDeparture) is not None:
+        info['airport'] = findClosest(latitudes, float(city['lat']), float(city['lng']), skylines['digraph'], isDeparture)
+        info['distance'] = haversine(float(info['airport']['Longitude']), float(info['airport']['Latitude']),
+                                     float(city['lng']), float(city['lat']))
+      elif findClosest(latitudes, float(city['lat']), float(city['lng']), skylines['digraph'], isDeparture) is None:
+        info = findAirportNearToCity(skylines, city, numberOfSearch + 1, isDeparture)
       else:
         info['airport'] = lt.firstElement(latitudes)
-        info['distance'] = haversine(float(info['airport']['Longitude']), float(info['airport']['Latitude']), float(city['lng']), float(city['lat']))
-      
+        info['distance'] = haversine(float(info['airport']['Longitude']), float(info['airport']['Latitude']),
+                                     float(city['lng']), float(city['lat']))
+
   return info
 
 
-def findClosest(lst, lat, lng, graph):
+def findClosest(lst, lat, lng, graph, isDeparture):
   closest = None
   minDistance = inf
-    
+
   for airport in lt.iterator(lst):
     distance = haversine(float(airport['Longitude']), float(airport['Latitude']), lng, lat)
-    if distance < minDistance and lt.size(gp.adjacents(graph, airport['IATA'])) > 0:
+
+    if isDeparture:
+      degree = gp.outdegree(graph, airport['IATA'])
+    else:
+      degree = gp.indegree(graph, airport['IATA'])
+
+    if distance < minDistance and degree > 0:
       closest = airport
       minDistance = distance
 
   return closest
+
 
 # ===================================================
 #                  REQUERIMIENTO 4
@@ -273,45 +248,186 @@ def findClosest(lst, lat, lng, graph):
 # ===================================================
 
 def quantifyEffect(skylines, airportIATA):
+  """
   airportEntry = mp.get(skylines['airports'], airportIATA)
 
   if airportEntry is None:
     return None
-  
+
   airport = me.getValue(airportEntry)
 
-  adjacentVertex = gp.adjacents(skylines['digraph'], airportIATA)
+  skylinesCopy = {
+    'digraph': copy.deepcopy(skylines['digraph']),
+    'graph': copy.deepcopy(skylines['graph']),
+  }
 
-  return [airport, adjacentVertex]
-  
+  adjacentVertexDigraph = gp.adjacents(skylines['digraph'], airport['IATA'])
+
+  gp.removeVertex(skylinesCopy['digraph'], airport['IATA'])
+  gp.removeVertex(skylinesCopy['graph'], airport['IATA'])
+
+  adjacentAirports = lt.newList('ARRAY_LIST', cmpfunction=compareByIATA)
+
+  for v in lt.iterator(adjacentVertexDigraph):
+    if lt.isPresent(adjacentAirports, me.getValue(mp.get(skylines['airports'], v))) == 0:
+      lt.addLast(adjacentAirports, me.getValue(mp.get(skylines['airports'], v)))
+
+  newDigraphEdges = gp.numEdges(skylinesCopy['digraph'])
+  newGraphEdges = gp.numEdges(skylinesCopy['graph'])
+
+  skylinesCopy = None
+
+  return [airport, adjacentAirports, newDigraphEdges, newGraphEdges]
+  """
+
 
 # ===================================================
 #                  REQUERIMIENTO 6
 # ===================================================
 
+def compareWebService(skylines, cityA, cityB):
+  url = 'https://test.api.amadeus.com/v1'
+
+  ownFunction = shortestRouteBetweenCities(skylines, cityA, cityB)
+
+  city1Entry = mp.get(skylines['cities'], cityA)
+  city2Entry = mp.get(skylines['cities'], cityB)
+
+  if city1Entry is None or city2Entry is None:
+    return [None, None]
+
+  city1 = selectCity(city1Entry)
+  city2 = selectCity(city2Entry)
+
+  if city1 is None or city2 is None:
+    return [None, None]
+
+  accessTokenReq = requests.post('https://test.api.amadeus.com/v1/security/oauth2/token',
+                                 headers={'Content-Type': 'application/x-www-form-urlencoded'},
+                                 data={
+                                   'grant_type': 'client_credentials',
+                                   'client_id': os.environ['CLIENT_ID'],
+                                   'client_secret': os.environ['CLIENT_SECRET'],
+                                 })
+  accessToken = accessTokenReq.json()['access_token']
+
+  departureAirportWeb = requests.get('https://test.api.amadeus.com/v1/reference-data/locations/airports',
+                              headers={'Authorization': 'Bearer ' + accessToken},
+                              params={'latitude': city1['lat'], 'longitude': city1['lng'], 'page[limit]': 1}).json()
+
+  destinationAirportWeb = requests.get('https://test.api.amadeus.com/v1/reference-data/locations/airports',
+                              headers={'Authorization': 'Bearer ' + accessToken},
+                              params={'latitude': city2['lat'], 'longitude': city2['lng'], 'page[limit]': 1}).json()
+
+
+  if len(departureAirportWeb['data']) == 0 or len(destinationAirportWeb['data']) == 0:
+    print(departureAirportWeb['data'], destinationAirportWeb['data'])
+    return [None, None]
+
+  webDepartureAirport = me.getValue(mp.get(skylines['airports'], departureAirportWeb['data'][0]['iataCode']))
+  webDestinationAirport = me.getValue(mp.get(skylines['airports'], destinationAirportWeb['data'][0]['iataCode']))
+
+  distanceFromCityToDepartureAirport = haversine(float(webDepartureAirport['Longitude']), float(webDepartureAirport['Latitude']), float(city1['lng']), float(city1['lat']))
+  distanceFromCityToDestinationAirport = haversine(float(webDestinationAirport['Longitude']), float(webDestinationAirport['Latitude']), float(city2['lng']), float(city2['lat']))
+
+  search = dj.Dijkstra(skylines['digraph'], webDepartureAirport['IATA'])
+
+  pathTo = dj.pathTo(search, webDestinationAirport['IATA'])
+
+  return [ownFunction, [
+    {'airport': webDepartureAirport, 'distance': distanceFromCityToDepartureAirport},
+    {'airport': webDestinationAirport, 'distance': distanceFromCityToDestinationAirport},
+    pathTo
+  ]]
 
 # ===================================================
 #                  REQUERIMIENTO 7
 # ===================================================
 
+def viewGraphically(skylines):
+  digraphMap = fl.Map(zoom_start=10)
 
-#Funciones de ayuda
+  shortest = shortestRouteBetweenCities(skylines, input('Ciudad de inicio (ascii): '), input('Ciudad final (ascii): '))
+
+  planes = shortest[2]
+
+  for edge in lt.iterator(planes):
+    points = []
+    names = []
+    airportOne = me.getValue(mp.get(skylines['airports'], edge['vertexA']))
+    pointA = (float(airportOne['Latitude']), float(airportOne['Longitude']))
+    points.append(pointA)
+    names.append(airportOne['IATA'])
+
+    airportTwo = me.getValue(mp.get(skylines['airports'], edge['vertexB']))
+    pointB = (float(airportTwo['Latitude']), float(airportTwo['Longitude']))
+    points.append(pointB)
+    names.append(airportTwo['IATA'])
+
+    for p in range(len(points)):
+      fl.Marker(points[p], tooltip=names[p]).add_to(digraphMap)
+
+    folium.PolyLine(points, tooltip=airportOne['IATA'] + ' ➞ ' + airportTwo['IATA'] + ' ' + str(edge['weight']) + 'km').add_to(digraphMap)
+
+  digraphMap.save(cf.maps_dir + 'digraph_map.html')
+
+
+
+# ===================================================
+#                FUNCIONES DE AYUDA
+# ===================================================
+
+def selectCity(firstCities):
+  if firstCities is None:
+    return None
+  elif lt.size(me.getValue(firstCities)) > 1:
+    print('Ingresa un número según la ciudad de origen que deseas: ')
+    for cityPos in range(1, lt.size(me.getValue(firstCities)) + 1):
+      fiCity = lt.getElement(me.getValue(firstCities), cityPos)
+      print('\n===================================================', cityPos,
+            '===================================================\n')
+      print('\tCiudad:', fiCity['city'])
+      print('\tCiudad ASCII:', fiCity['city_ascii'])
+      print('\tLatitud:', fiCity['lat'])
+      print('\tLongitud:', fiCity['lng'])
+      print('\tPaís:', fiCity['country'])
+      print('\tISO2:', fiCity['iso2'])
+      print('\tISO3:', fiCity['iso3'])
+      print('\tNombre Administrador:', fiCity['admin_name'])
+      print('\tCapital:', fiCity['capital'])
+      print('\tPoblación:', fiCity['population'])
+      print('\tID:', fiCity['id'])
+
+    citySelected = input('\n> ')
+    finalFirstCity = lt.getElement(me.getValue(firstCities), int(citySelected))
+  else:
+    finalFirstCity = lt.getElement(me.getValue(firstCities), 1)
+
+  return finalFirstCity
 
 def haversine(lon1, lat1, lon2, lat2):
-    """
+  """
     Calculate the great circle distance in kilometers between two points 
     on the earth (specified in decimal degrees)
 
     IMPLEMENTACION OBTENIDA DE:
     https://stackoverflow.com/questions/4913349/haversine-formula-in-python-bearing-and-distance-between-two-gps-points
     """
-    # convert decimal degrees to radians 
-    lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
+  # convert decimal degrees to radians
+  lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
 
-    # haversine formula 
-    dlon = lon2 - lon1 
-    dlat = lat2 - lat1 
-    a = sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlon/2)**2
-    c = 2 * asin(sqrt(a)) 
-    r = 6371 # Radius of earth in kilometers. Use 3956 for miles. Determines return value units.
-    return c * r
+  # haversine formula
+  dlon = lon2 - lon1
+  dlat = lat2 - lat1
+  a = sin(dlat / 2) ** 2 + cos(lat1) * cos(lat2) * sin(dlon / 2) ** 2
+  c = 2 * asin(sqrt(a))
+  r = 6371  # Radius of earth in kilometers. Use 3956 for miles. Determines return value units.
+  return c * r
+
+
+def compareByIATA(e1, e2):
+  if e1['IATA'] > e2['IATA']:
+    return 1
+  elif e1['IATA'] < e2['IATA']:
+    return -1
+  return 0

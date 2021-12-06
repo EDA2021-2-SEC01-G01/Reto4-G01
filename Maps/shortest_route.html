@@ -23,7 +23,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_d9aa5dddead7434c853d23116beb8ac8 {
+                #map_934120bd02494393831ce334ed5107a4 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -35,13 +35,13 @@
 </head>
 <body>    
     
-            <div class="folium-map" id="map_d9aa5dddead7434c853d23116beb8ac8" ></div>
+            <div class="folium-map" id="map_934120bd02494393831ce334ed5107a4" ></div>
         
 </body>
 <script>    
     
-            var map_d9aa5dddead7434c853d23116beb8ac8 = L.map(
-                "map_d9aa5dddead7434c853d23116beb8ac8",
+            var map_934120bd02494393831ce334ed5107a4 = L.map(
+                "map_934120bd02494393831ce334ed5107a4",
                 {
                     center: [0, 0],
                     crs: L.CRS.EPSG3857,
@@ -55,49 +55,91 @@
 
         
     
-            var tile_layer_480728d44d234cbab2e21126575d2817 = L.tileLayer(
+            var tile_layer_f5bd94a80e68472d8243f872a3ad1af3 = L.tileLayer(
                 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_d9aa5dddead7434c853d23116beb8ac8);
+            ).addTo(map_934120bd02494393831ce334ed5107a4);
         
     
-            var marker_ca0e232f75344ca188f55d507021fed9 = L.marker(
-                [51.505299, 0.055278],
+            var marker_15eeb0dec6b34d9a831f0fabc24df86c = L.marker(
+                [4.70159, -74.1469],
                 {}
-            ).addTo(map_d9aa5dddead7434c853d23116beb8ac8);
+            ).addTo(map_934120bd02494393831ce334ed5107a4);
         
     
-            marker_ca0e232f75344ca188f55d507021fed9.bindTooltip(
+            marker_15eeb0dec6b34d9a831f0fabc24df86c.bindTooltip(
                 `<div>
-                     LCY
+                     BOG
                  </div>`,
                 {"sticky": true}
             );
         
     
-            var marker_20baa243251e4908a64148b24bcdd0fe = L.marker(
-                [52.308601, 4.76389],
+            var marker_82ba06119e19494aa2653aa801944d9b = L.marker(
+                [40.69250107, -74.16870117],
                 {}
-            ).addTo(map_d9aa5dddead7434c853d23116beb8ac8);
+            ).addTo(map_934120bd02494393831ce334ed5107a4);
         
     
-            marker_20baa243251e4908a64148b24bcdd0fe.bindTooltip(
+            marker_82ba06119e19494aa2653aa801944d9b.bindTooltip(
                 `<div>
-                     AMS
+                     EWR
                  </div>`,
                 {"sticky": true}
             );
         
     
-            var poly_line_9a2f3e3be55546288265fb692da3a223 = L.polyline(
-                [[51.505299, 0.055278], [52.308601, 4.76389]],
+            var poly_line_de31dc4c6d4e475b8da1d77a53955736 = L.polyline(
+                [[4.70159, -74.1469], [40.69250107, -74.16870117]],
                 {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
-            ).addTo(map_d9aa5dddead7434c853d23116beb8ac8);
+            ).addTo(map_934120bd02494393831ce334ed5107a4);
         
     
-            poly_line_9a2f3e3be55546288265fb692da3a223.bindTooltip(
+            poly_line_de31dc4c6d4e475b8da1d77a53955736.bindTooltip(
                 `<div>
-                     LCY ➞ AMS 335.067km
+                     BOG ➞ EWR 4002.007km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ec83aa1129b5459bbd7114a9fdbdba02 = L.marker(
+                [40.69250107, -74.16870117],
+                {}
+            ).addTo(map_934120bd02494393831ce334ed5107a4);
+        
+    
+            marker_ec83aa1129b5459bbd7114a9fdbdba02.bindTooltip(
+                `<div>
+                     EWR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dd065b85a40a4f85ae7f8259d261e09d = L.marker(
+                [40.77719879, -73.87259674],
+                {}
+            ).addTo(map_934120bd02494393831ce334ed5107a4);
+        
+    
+            marker_dd065b85a40a4f85ae7f8259d261e09d.bindTooltip(
+                `<div>
+                     LGA
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_5b232f5b5f99471c8c82a194c1107ecd = L.polyline(
+                [[40.69250107, -74.16870117], [40.77719879, -73.87259674]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_934120bd02494393831ce334ed5107a4);
+        
+    
+            poly_line_5b232f5b5f99471c8c82a194c1107ecd.bindTooltip(
+                `<div>
+                     EWR ➞ LGA 26.667km
                  </div>`,
                 {"sticky": true}
             );

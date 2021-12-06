@@ -89,7 +89,7 @@ def returnInfo(skylines):
   print('\tLongitud:', y(lAirportD['Longitude']))
 
   print('\nEl número de aeropuertos cargados el grafo NO DIRIGIDO es:', y(gp.numVertices(skylines['graph'])))
-  print('El número de ardcos cargados el grafo NO DIRIGIDO es:', y(gp.numEdges(skylines['graph'])))
+  print('El número de arcos cargados el grafo NO DIRIGIDO es:', y(gp.numEdges(skylines['graph'])))
 
   print('\nLa información del primer aeropuerto cargado en el grafo NO DIRIGIDO es:\n')
 
@@ -337,7 +337,7 @@ def printMenu():
   print("7- Comparar con servicio WEB externo")
   print("8- Visualizar gráficamente los requerimientos")
 
-skylines = initSkylines()
+skylines = None
 
 """
 Menu principal
@@ -347,6 +347,7 @@ while True:
   inputs = input('Seleccione una opción para continuar\n> ')
   if int(inputs[0]) == 1:
     print("Cargando información de los archivos ....")
+    skylines = initSkylines()
     loadSkylines(skylines)
     returnInfo(skylines)
   elif int(inputs[0]) == 2:

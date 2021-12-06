@@ -26,6 +26,8 @@ import controller
 from DISClib.ADT import list as lt
 from DISClib.ADT import graph as gp
 from DISClib.ADT import map as mp
+from DISClib.ADT import orderedmap as om 
+from DISClib.DataStructures import mapentry as me
 from colorama import Fore as c
 from colorama import Style as cs
 assert cf
@@ -148,14 +150,68 @@ def returnInfo(skylines):
 #====================================================================#
 
 def findAirConnections(skylines):
-  pass
+  data = controller.connectionPoints(skylines)
+  first5 = lt.newList(datastructure="ARRAY_LIST")
+  totalConected = 0
+
+  for i in lt.iterator(om.valueSet(data[1])):
+    totalConected += lt.size(i)
+
+  print("Hay "+ str(totalConected) + " aeropuertos conectados en la red actual:")
+  while lt.size(first5) < 5:
+    max = om.get(data[1], om.maxKey(data[1]))
+    max = me.getValue(max)
+    for value in lt.iterator(max):
+      if lt.size(first5) < 5:
+        lt.addLast(first5, value)
+    om.deleteMax(data[1])
+    max = None
+
+  print("El TOP 5 aeropuertos conectados es:")
+  for airport in lt.iterator(first5):
+    info = mp.get(skylines["airports"],airport)
+    info = me.getValue(info)
+    print("\tNombre del Aeropuerto: " + y(info["Name"]))
+    print("\tCiudad: " + y(info["City"]))
+    print("\tPais: " + y(info["Country"]))
+    print("\tCódigo IATA: " + y(info["IATA"]))
+    print("\tConecciones totales: " + y(gp.outdegree(skylines["digraph"], airport) + gp.indegree(skylines["digraph"],airport)))
+    print("\tConexiones entrantes: " + y(gp.indegree(skylines["digraph"],airport)))
+    print("\tConexiones salientes: " + y(gp.outdegree(skylines["digraph"], airport)))
+    print("--------------------------------------------------------------------------------------\n")
+
 
 #====================================================================#
 #                          REQUERIMIENTO 2                           #
 #====================================================================#
 
 def findAirTrafficClusters(skylines):
-  pass
+  IATA1 = input("Ingrese el Código IATA del primer aeropuerto:\n>")
+  IATA2 = input("Ingrese el Código IATA del segundo aeropuerto:\n>")
+
+  data = controller.findClusters(skylines, IATA1, IATA2)
+
+  print("Código IATA del primer aeropuerto: " + y(IATA1))
+  info1 = mp.get(skylines["airports"],IATA1)
+  info1 = me.getValue(info1)
+  print("\tNombre del Aeropuerto: " + y(info1["Name"]))
+  print("\tCiudad: " + y(info1["City"]))
+  print("\tPais: " + y(info1["Country"]))
+  print("\tCódigo IATA: " + y(info1["IATA"] + "\n"))
+
+  print("---------------------------------------------------------------------")
+
+  print("Código IATA del segundo aeropuerto: " + y(IATA2))
+  info2 = mp.get(skylines["airports"],IATA2)
+  info2 = me.getValue(info2)
+  print("\tNombre del Aeropuerto: " + y(info2["Name"]))
+  print("\tCiudad: " + y(info2["City"]))
+  print("\tPais: " + y(info2["Country"]))
+  print("\tCódigo IATA: " + y(info2["IATA"]) + "\n")
+
+  print("Hay " + str(data[0]) + " aeropuertos/clústeres fuertemente conectados en la red actual")
+  print("¿Estan " + info1["Name"] + " y " + info2["Name"] + " conectados?")
+  print("\tRespuesta: " + y("No") if data[1] == False else + y("Sí"))
 
 #====================================================================#
 #                          REQUERIMIENTO 3                           #

@@ -35,6 +35,7 @@ from DISClib.ADT import graph as gp
 from DISClib.DataStructures import mapentry as me
 from DISClib.Algorithms.Sorting import mergesort as ms
 from DISClib.Algorithms.Graphs import dijsktra as dj
+import DISClib.Algorithms.Graphs.scc as scc
 from DISClib.DataStructures import edge as e
 import requests
 import folium as fl
@@ -127,15 +128,39 @@ def addCity(skylines, city):
 # ===================================================
 
 def connectionPoints(skylines):
-  pass
+  graf = gp.vertices(skylines["digraph"])
+  grafDegrees = mp.newMap(numelements=len(skylines["airportsList"]), maptype="PROBING")
+  degreesRev = om.newMap()
+  
+  for airport in lt.iterator(graf):
+    degree = gp.outdegree(skylines["digraph"], airport) + gp.indegree(skylines["digraph"],airport)
+    if degree != 0:
+      mp.put(grafDegrees, airport, degree) 
+
+      if om.contains(degreesRev, degree):
+        entry = om.get(degreesRev,degree)
+        entry = me.getValue(entry)
+        lt.addLast(entry, airport)
+      else:
+        entry = lt.newList("ARRAY_LIST")
+        lt.addLast(entry, airport)
+        om.put(degreesRev, degree, entry)   
+
+  return (mp.keySet(grafDegrees), degreesRev)
 
 
 # ===================================================
 #                  REQUERIMIENTO 2
 # ===================================================
 
-def findClusters(skylines):
-  pass
+def findClusters(skylines, IATA1, IATA2):
+  cc = scc.KosarajuSCC(skylines["digraph"])
+  numberOfcc = scc.connectedComponents(cc)
+  
+  boolean = scc.stronglyConnected(cc, IATA1, IATA2)
+
+  return numberOfcc, boolean
+
 
 # ===================================================
 #                  REQUERIMIENTO 3

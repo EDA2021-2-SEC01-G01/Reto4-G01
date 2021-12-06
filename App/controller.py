@@ -58,15 +58,13 @@ def loadData(skylines, airportsFile, routesFile, citiesFile):
 
 #Req. 1
 
-"""
-AQUI REQUERIMIENTO 1
-"""
+def connectionPoints(skylines):
+  return model.connectionPoints(skylines)
 
 #Req. 2
 
-"""
-AQUI REQUERIMIENTO 2
-"""
+def findClusters(skylines, IATA1, IATA2):
+  return model.findClusters(skylines, IATA1, IATA2)
 
 #Req. 3
 

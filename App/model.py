@@ -414,23 +414,15 @@ def viewGraphically(skylines):
 def viewConnectionPoints(skylines, filename):
   data = connectionPoints(skylines)
   airports = lt.newList(datastructure="ARRAY_LIST")
-  totalConected = 0
 
   for i in lt.iterator(om.valueSet(data[1])):
-    totalConected += lt.size(i)
-
-  while lt.size(airports) < totalConected:
-    mkey = om.maxKey(data[1])
-    max = om.get(data[1], mkey)
-    max = me.getValue(max)
-    for value in lt.iterator(max):
-      lt.addLast(airports, me.getValue(mp.get(skylines['airports'], value)))
-    om.deleteMax(data[1])
-    max = None
+    for airport in lt.iterator(i):
+      lt.addLast(airports, airport)
 
   connectionsMap = fl.Map(zoom_start=5)
 
-  for airport in lt.iterator(airports):
+  for a in lt.iterator(airports):
+    airport = me.getValue(mp.get(skylines['airports'], a))
     fl.Marker(location=(airport['Latitude'], airport['Longitude']), tooltip=airport['IATA']).add_to(connectionsMap)
 
   connectionsMap.save(cf.maps_dir + filename + '.html')

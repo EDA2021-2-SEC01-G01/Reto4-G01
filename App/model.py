@@ -30,6 +30,7 @@ from math import radians, cos, sin, asin, sqrt, inf
 import folium
 
 import DISClib.Algorithms.Graphs.dijsktra as dj
+import DISClib.Algorithms.Graphs.scc as scc
 import config as cf
 from DISClib.ADT import list as lt
 from DISClib.ADT import map as mp
@@ -154,8 +155,14 @@ def connectionPoints(skylines):
 #                  REQUERIMIENTO 2
 # ===================================================
 
-def findClusters(skylines):
-  pass
+def findClusters(skylines, IATA1, IATA2):
+  cc = scc.KosarajuSCC(skylines["digraph"])
+  numberOfcc = scc.connectedComponents(cc)
+  
+  boolean = scc.stronglyConnected(cc, IATA1, IATA2)
+
+  return numberOfcc, boolean
+
 
 # ===================================================
 #                  REQUERIMIENTO 3
@@ -451,6 +458,3 @@ def compareByIATA(e1, e2):
   elif e1['IATA'] < e2['IATA']:
     return -1
   return 0
-
-def compareAmount(a, b):
-  return a["degree"] < b["degree"]

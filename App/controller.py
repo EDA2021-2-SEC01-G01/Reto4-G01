@@ -63,9 +63,8 @@ def connectionPoints(skylines):
 
 #Req. 2
 
-"""
-AQUI REQUERIMIENTO 2
-"""
+def findClusters(skylines, IATA1, IATA2):
+  return model.findClusters(skylines, IATA1, IATA2)
 
 #Req. 3
 

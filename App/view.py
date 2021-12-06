@@ -174,7 +174,7 @@ def findAirConnections(skylines):
     print("\tNombre del Aeropuerto: " + y(info["Name"]))
     print("\tCiudad: " + y(info["City"]))
     print("\tPais: " + y(info["Country"]))
-    print("\tIATA: " + y(info["IATA"]))
+    print("\tCódigo IATA: " + y(info["IATA"]))
     print("\tConecciones totales: " + y(gp.outdegree(skylines["digraph"], airport) + gp.indegree(skylines["digraph"],airport)))
     print("\tConexiones entrantes: " + y(gp.indegree(skylines["digraph"],airport)))
     print("\tConexiones salientes: " + y(gp.outdegree(skylines["digraph"], airport)))
@@ -186,7 +186,32 @@ def findAirConnections(skylines):
 #====================================================================#
 
 def findAirTrafficClusters(skylines):
-  pass
+  IATA1 = input("Ingrese el Código IATA del primer aeropuerto:\n>")
+  IATA2 = input("Ingrese el Código IATA del segundo aeropuerto:\n>")
+
+  data = controller.findClusters(skylines, IATA1, IATA2)
+
+  print("Código IATA del primer aeropuerto: " + y(IATA1))
+  info1 = mp.get(skylines["airports"],IATA1)
+  info1 = me.getValue(info1)
+  print("\tNombre del Aeropuerto: " + y(info1["Name"]))
+  print("\tCiudad: " + y(info1["City"]))
+  print("\tPais: " + y(info1["Country"]))
+  print("\tCódigo IATA: " + y(info1["IATA"] + "\n"))
+
+  print("---------------------------------------------------------------------")
+
+  print("Código IATA del segundo aeropuerto: " + y(IATA2))
+  info2 = mp.get(skylines["airports"],IATA2)
+  info2 = me.getValue(info2)
+  print("\tNombre del Aeropuerto: " + y(info2["Name"]))
+  print("\tCiudad: " + y(info2["City"]))
+  print("\tPais: " + y(info2["Country"]))
+  print("\tCódigo IATA: " + y(info2["IATA"]) + "\n")
+
+  print("Hay " + str(data[0]) + " aeropuertos/clústeres fuertemente conectados en la red actual")
+  print("¿Estan " + info1["Name"] + " y " + info2["Name"] + " conectados?")
+  print("\tRespuesta: " + y("No") if data[1] == False else + y("Sí"))
 
 #====================================================================#
 #                          REQUERIMIENTO 3                           #

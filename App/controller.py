@@ -87,7 +87,7 @@ def quantifyEffect(skylines, airportIATA):
 def shortestWebRoute(skylines, city1, city2):
   return model.compareWebService(skylines, city1, city2)
 
-#Req. 6
+#Req. 7
 
 def viewGraphically(skylines):
   model.viewGraphically(skylines)

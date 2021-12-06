@@ -211,7 +211,10 @@ def findAirTrafficClusters(skylines):
 
   print("Hay " + str(data[0]) + " aeropuertos/clústeres fuertemente conectados en la red actual")
   print("¿Estan " + info1["Name"] + " y " + info2["Name"] + " conectados?")
-  print("\tRespuesta: " + y("No") if data[1] == False else + y("Sí"))
+  if data[1] == False:
+    print('\tRespuesta:', y('No'))
+  else:
+    print('\tRespuesta:', y('Si'))
 
 #====================================================================#
 #                          REQUERIMIENTO 3                           #
@@ -320,6 +323,10 @@ def compareWebService(skylines):
 
   if info is None:
     print(c.RED + 'Alguna de las ciudades no existe o no existe una ruta disponible' + cs.RESET_ALL)
+    return None
+
+  if web is None:
+    print(c.RED + 'El servicio web no encontró aeropuertos' + cs.RESET_ALL)
     return None
 
   print('\nEl aeropuerto de origen a una distancia de', y(round(info[0]['distance'], 3)) + y('km'), 'de la ciudad de origen es:\n')

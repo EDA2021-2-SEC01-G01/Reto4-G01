@@ -129,7 +129,7 @@ def addCity(skylines, city):
 
 def connectionPoints(skylines):
   graf = gp.vertices(skylines["digraph"])
-  grafDegrees = mp.newMap(numelements=len(skylines["airportsList"]), maptype="PROBING")
+  grafDegrees = mp.newMap(numelements=len(skylines["airportsList"]), maptype="PROBING", loadfactor=0.5)
   degreesRev = om.newMap()
   
   for airport in lt.iterator(graf):
@@ -356,8 +356,7 @@ def compareWebService(skylines, cityA, cityB):
 
 
   if len(departureAirportWeb['data']) == 0 or len(destinationAirportWeb['data']) == 0:
-    print(departureAirportWeb['data'], destinationAirportWeb['data'])
-    return [None, None]
+    return [ownFunction, None]
 
   webDepartureAirport = me.getValue(mp.get(skylines['airports'], departureAirportWeb['data'][0]['iataCode']))
   webDestinationAirport = me.getValue(mp.get(skylines['airports'], destinationAirportWeb['data'][0]['iataCode']))
@@ -399,7 +398,7 @@ def viewGraphically(skylines):
     print("6- Salir")
     inputs = input('Seleccione una opción para continuar\n> ')
     if int(inputs[0]) == 1:
-      pass
+      viewConnectionPoints(skylines, 'connection_points')
     elif int(inputs[0]) == 2:
       pass
     elif int(inputs[0]) == 3:
@@ -410,6 +409,31 @@ def viewGraphically(skylines):
       viewClosedAirportEffect(skylines, 'closed_effect')
     elif int(inputs[0]) == 6:
       view = False
+
+
+def viewConnectionPoints(skylines, filename):
+  data = connectionPoints(skylines)
+  airports = lt.newList(datastructure="ARRAY_LIST")
+  totalConected = 0
+
+  for i in lt.iterator(om.valueSet(data[1])):
+    totalConected += lt.size(i)
+
+  while lt.size(airports) < totalConected:
+    mkey = om.maxKey(data[1])
+    max = om.get(data[1], mkey)
+    max = me.getValue(max)
+    for value in lt.iterator(max):
+      lt.addLast(airports, me.getValue(mp.get(skylines['airports'], value)))
+    om.deleteMax(data[1])
+    max = None
+
+  connectionsMap = fl.Map(zoom_start=5)
+
+  for airport in lt.iterator(airports):
+    fl.Marker(location=(airport['Latitude'], airport['Longitude']), tooltip=airport['IATA']).add_to(connectionsMap)
+
+  connectionsMap.save(cf.maps_dir + filename + '.html')
 
 
 def viewShortestRouteGraphically(skylines, filename):
@@ -429,7 +453,7 @@ def viewShortestRouteGraphically(skylines, filename):
     print('Alguna de las ciudades no existe o no existe una ruta')
     return None
 
-  foliumMap = fl.Map(zoom_start=10)
+  foliumMap = fl.Map(zoom_start=5)
 
   planes = shortest[2]
 
@@ -508,7 +532,7 @@ def viewClosedAirportEffect(skylines, filename):
     for p in range(len(points)):
       fl.Marker(points[p], tooltip=names[p]).add_to(graphMap)
 
-    fl.PolyLine(points, tooltip=airportOne['IATA'] + ' ➞ ' + airportTwo['IATA'] + ' ' + str(ed['weight']) + 'km').add_to(graphMap)
+    fl.PolyLine(points, tooltip=airportOne['IATA'] + ' ⇄ ' + airportTwo['IATA'] + ' ' + str(ed['weight']) + 'km').add_to(graphMap)
 
   graphMap.save(cf.maps_dir + filename + '_graph.html')
   digraphMap.save(cf.maps_dir + filename + '_digraph.html')

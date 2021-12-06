@@ -26,6 +26,8 @@ import controller
 from DISClib.ADT import list as lt
 from DISClib.ADT import graph as gp
 from DISClib.ADT import map as mp
+from DISClib.ADT import orderedmap as om 
+from DISClib.DataStructures import mapentry as me
 from colorama import Fore as c
 from colorama import Style as cs
 assert cf
@@ -89,7 +91,7 @@ def returnInfo(skylines):
   print('\tLongitud:', y(lAirportD['Longitude']))
 
   print('\nEl número de aeropuertos cargados el grafo NO DIRIGIDO es:', y(gp.numVertices(skylines['graph'])))
-  print('El número de ardcos cargados el grafo NO DIRIGIDO es:', y(gp.numEdges(skylines['graph'])))
+  print('El número de arcos cargados el grafo NO DIRIGIDO es:', y(gp.numEdges(skylines['graph'])))
 
   print('\nLa información del primer aeropuerto cargado en el grafo NO DIRIGIDO es:\n')
 
@@ -148,7 +150,36 @@ def returnInfo(skylines):
 #====================================================================#
 
 def findAirConnections(skylines):
-  pass
+  data = controller.connectionPoints(skylines)
+  first5 = lt.newList(datastructure="ARRAY_LIST")
+  totalConected = 0
+
+  for i in lt.iterator(om.valueSet(data[1])):
+    totalConected += lt.size(i)
+
+  print("Hay "+ str(totalConected) + " aeropuertos conectados en la red actual:")
+  while lt.size(first5) < 5:
+    max = om.get(data[1], om.maxKey(data[1]))
+    max = me.getValue(max)
+    for value in lt.iterator(max):
+      if lt.size(first5) < 5:
+        lt.addLast(first5, value)
+    om.deleteMax(data[1])
+    max = None
+
+  print("El TOP 5 aeropuertos conectados es:")
+  for airport in lt.iterator(first5):
+    info = mp.get(skylines["airports"],airport)
+    info = me.getValue(info)
+    print("\tNombre del Aeropuerto: " + y(info["Name"]))
+    print("\tCiudad: " + y(info["City"]))
+    print("\tPais: " + y(info["Country"]))
+    print("\tIATA: " + y(info["IATA"]))
+    print("\tConecciones totales: " + y(gp.outdegree(skylines["digraph"], airport) + gp.indegree(skylines["digraph"],airport)))
+    print("\tConexiones entrantes: " + y(gp.indegree(skylines["digraph"],airport)))
+    print("\tConexiones salientes: " + y(gp.outdegree(skylines["digraph"], airport)))
+    print("--------------------------------------------------------------------------------------\n")
+
 
 #====================================================================#
 #                          REQUERIMIENTO 2                           #

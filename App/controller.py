@@ -58,9 +58,8 @@ def loadData(skylines, airportsFile, routesFile, citiesFile):
 
 #Req. 1
 
-"""
-AQUI REQUERIMIENTO 1
-"""
+def connectionPoints(skylines):
+  return model.connectionPoints(skylines)
 
 #Req. 2
 

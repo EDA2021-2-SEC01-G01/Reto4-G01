@@ -128,7 +128,26 @@ def addCity(skylines, city):
 # ===================================================
 
 def connectionPoints(skylines):
-  pass
+  graf = gp.vertices(skylines["digraph"])
+  grafDegrees = mp.newMap(numelements=len(skylines["airportsList"]), maptype="PROBING")
+  degreesRev = om.newMap()
+  
+  for airport in lt.iterator(graf):
+    degree = gp.outdegree(skylines["digraph"], airport) + gp.indegree(skylines["digraph"],airport)
+    if degree != 0:
+      mp.put(grafDegrees, airport, degree) 
+
+      if om.contains(degreesRev, degree):
+        entry = om.get(degreesRev,degree)
+        entry = me.getValue(entry)
+        lt.addLast(entry, airport)
+      else:
+        entry = lt.newList("ARRAY_LIST")
+        lt.addLast(entry, airport)
+        om.put(degreesRev, degree, entry)   
+
+  return (mp.keySet(grafDegrees), degreesRev)
+  
 
 
 # ===================================================
@@ -377,6 +396,7 @@ def viewGraphically(skylines):
 #                FUNCIONES DE AYUDA
 # ===================================================
 
+
 def selectCity(firstCities):
   if firstCities is None:
     return None
@@ -431,3 +451,6 @@ def compareByIATA(e1, e2):
   elif e1['IATA'] < e2['IATA']:
     return -1
   return 0
+
+def compareAmount(a, b):
+  return a["degree"] < b["degree"]

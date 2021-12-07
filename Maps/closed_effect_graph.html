@@ -1,0 +1,4431 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d361078da09147afa1a81ac28787c605 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_d361078da09147afa1a81ac28787c605" ></div>
+        
+</body>
+<script>    
+    
+            var map_d361078da09147afa1a81ac28787c605 = L.map(
+                "map_d361078da09147afa1a81ac28787c605",
+                {
+                    center: [0, 0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 1,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_977214bea37446a5b62ad10609295450 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            var marker_7980386175394149921600b982cfefb3 = L.marker(
+                [-23.36540031, -149.5240021],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_7980386175394149921600b982cfefb3.bindTooltip(
+                `<div>
+                     TUB
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cc5abbff30254b8494159d6b8dbb723c = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_cc5abbff30254b8494159d6b8dbb723c.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_cbc538b0ea564b5da2aa6e9f0c1e31fa = L.polyline(
+                [[-23.36540031, -149.5240021], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_cbc538b0ea564b5da2aa6e9f0c1e31fa.bindTooltip(
+                `<div>
+                     TUB ⇄ PPT 646.289km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8f53576f13ea499cb72176f1206dbd6f = L.marker(
+                [-16.44440079, -151.7510071],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_8f53576f13ea499cb72176f1206dbd6f.bindTooltip(
+                `<div>
+                     BOB
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7aa7b93f52b949ee9034f8692c9af10a = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_7aa7b93f52b949ee9034f8692c9af10a.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_bfecf9addedf4951a1b68b03e246a688 = L.polyline(
+                [[-16.44440079, -151.7510071], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_bfecf9addedf4951a1b68b03e246a688.bindTooltip(
+                `<div>
+                     BOB ⇄ PPT 259.211km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4de9d32506c34a89be2311038bb0349a = L.marker(
+                [-15.1196003, -148.2310028],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_4de9d32506c34a89be2311038bb0349a.bindTooltip(
+                `<div>
+                     TIH
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3deb2f89f5ef416ea9139145437e4ba3 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_3deb2f89f5ef416ea9139145437e4ba3.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_9edd32115442467c87859a241e7b54d4 = L.polyline(
+                [[-15.1196003, -148.2310028], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_9edd32115442467c87859a241e7b54d4.bindTooltip(
+                `<div>
+                     TIH ⇄ PPT 307.913km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b2381cb49c864507870cb7dbe5745bc6 = L.marker(
+                [37.61899948, -122.375],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_b2381cb49c864507870cb7dbe5745bc6.bindTooltip(
+                `<div>
+                     SFO
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8de8b3d0f6e24f4fa2e9fe62daf134af = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_8de8b3d0f6e24f4fa2e9fe62daf134af.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_f84078d2e3a143e8a6f10f240ffb43ff = L.polyline(
+                [[37.61899948, -122.375], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_f84078d2e3a143e8a6f10f240ffb43ff.bindTooltip(
+                `<div>
+                     SFO ⇄ PPT 6764.015km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_464f2c4010b349da92d4aca66bb46aae = L.marker(
+                [37.61899948, -122.375],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_464f2c4010b349da92d4aca66bb46aae.bindTooltip(
+                `<div>
+                     SFO
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_605c86f71fce43d38c323de5988436cf = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_605c86f71fce43d38c323de5988436cf.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_9f8e0f3304d84a6681dd92627d394d8d = L.polyline(
+                [[37.61899948, -122.375], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_9f8e0f3304d84a6681dd92627d394d8d.bindTooltip(
+                `<div>
+                     SFO ⇄ PPT 6764.015km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_97f59bbf7d4744519043557e504638eb = L.marker(
+                [-22.63725, -152.8059],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_97f59bbf7d4744519043557e504638eb.bindTooltip(
+                `<div>
+                     RMT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5603410df3994b8a80205afb0542c4b9 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_5603410df3994b8a80205afb0542c4b9.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_6edc36804c234b7891c9f5bc157f1f52 = L.polyline(
+                [[-22.63725, -152.8059], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_6edc36804c234b7891c9f5bc157f1f52.bindTooltip(
+                `<div>
+                     RMT ⇄ PPT 656.511km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d0a0315145164e29880e6951cfcff111 = L.marker(
+                [35.76470184, 140.3860016],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_d0a0315145164e29880e6951cfcff111.bindTooltip(
+                `<div>
+                     NRT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2c7d45213f834749bbedefd39f0cf924 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_2c7d45213f834749bbedefd39f0cf924.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_f1ebbd02fdc34507945d3b396e4bfbc7 = L.polyline(
+                [[35.76470184, 140.3860016], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_f1ebbd02fdc34507945d3b396e4bfbc7.bindTooltip(
+                `<div>
+                     NRT ⇄ PPT 9444.639km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d399dcad8d05448eb304822b8b1d6b59 = L.marker(
+                [35.76470184, 140.3860016],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_d399dcad8d05448eb304822b8b1d6b59.bindTooltip(
+                `<div>
+                     NRT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_84173e5ea04d45eb89e40ecb8ade6bf6 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_84173e5ea04d45eb89e40ecb8ade6bf6.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_cbef96802b814f8e91d4ad40b97dec57 = L.polyline(
+                [[35.76470184, 140.3860016], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_cbef96802b814f8e91d4ad40b97dec57.bindTooltip(
+                `<div>
+                     NRT ⇄ PPT 9444.639km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_77133134a1b947329f507bb007357b0a = L.marker(
+                [35.76470184, 140.3860016],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_77133134a1b947329f507bb007357b0a.bindTooltip(
+                `<div>
+                     NRT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bdb251a2444b456a8319d8d11f201d48 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_bdb251a2444b456a8319d8d11f201d48.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_67dfbfdcb444482389a59c17b3a1e2cb = L.polyline(
+                [[35.76470184, 140.3860016], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_67dfbfdcb444482389a59c17b3a1e2cb.bindTooltip(
+                `<div>
+                     NRT ⇄ PPT 9444.639km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3558a0149bdf4c80907e0df6a34c28d2 = L.marker(
+                [-23.07990074, -134.8899994],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_3558a0149bdf4c80907e0df6a34c28d2.bindTooltip(
+                `<div>
+                     GMR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_399ed8be7a98421db6b751e8d93bc304 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_399ed8be7a98421db6b751e8d93bc304.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_490e7c4cca574e03bb09119fd4803d5b = L.polyline(
+                [[-23.07990074, -134.8899994], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_490e7c4cca574e03bb09119fd4803d5b.bindTooltip(
+                `<div>
+                     GMR ⇄ PPT 1651.842km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d3853520906a42c3a9548a922976340a = L.marker(
+                [-37.0080986, 174.7920074],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_d3853520906a42c3a9548a922976340a.bindTooltip(
+                `<div>
+                     AKL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6c0fea8c11e64a5c892ccb373f732fc7 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_6c0fea8c11e64a5c892ccb373f732fc7.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_d780e08229f741d4a1781069c91d2566 = L.polyline(
+                [[-37.0080986, 174.7920074], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_d780e08229f741d4a1781069c91d2566.bindTooltip(
+                `<div>
+                     AKL ⇄ PPT 4093.365km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_904bf76cbe3f4bdea9c44971efa479f6 = L.marker(
+                [-37.0080986, 174.7920074],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_904bf76cbe3f4bdea9c44971efa479f6.bindTooltip(
+                `<div>
+                     AKL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bffc1ffcdde949e2963229ac39868de4 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_bffc1ffcdde949e2963229ac39868de4.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_55765b48a04547d687f82ef4c20cf379 = L.polyline(
+                [[-37.0080986, 174.7920074], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_55765b48a04547d687f82ef4c20cf379.bindTooltip(
+                `<div>
+                     AKL ⇄ PPT 4093.365km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_775728cf903640d4aa962fe075b79a63 = L.marker(
+                [-37.0080986, 174.7920074],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_775728cf903640d4aa962fe075b79a63.bindTooltip(
+                `<div>
+                     AKL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9a9e12e4ac5f40ffb1220094d8aecda1 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_9a9e12e4ac5f40ffb1220094d8aecda1.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_764a3a78e68b4a0196fd027b7ae0a301 = L.polyline(
+                [[-37.0080986, 174.7920074], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_764a3a78e68b4a0196fd027b7ae0a301.bindTooltip(
+                `<div>
+                     AKL ⇄ PPT 4093.365km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_23742c07fedc4778abd826c31f86dae6 = L.marker(
+                [-37.0080986, 174.7920074],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_23742c07fedc4778abd826c31f86dae6.bindTooltip(
+                `<div>
+                     AKL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1b2542c2b97e43b2b4fd6a8f58e14429 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_1b2542c2b97e43b2b4fd6a8f58e14429.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_1c18aca8d3044087ba1ab35a8221ad94 = L.polyline(
+                [[-37.0080986, 174.7920074], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_1c18aca8d3044087ba1ab35a8221ad94.bindTooltip(
+                `<div>
+                     AKL ⇄ PPT 4093.365km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a0b9ed35a57e471baecb0bec049b6715 = L.marker(
+                [-37.0080986, 174.7920074],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_a0b9ed35a57e471baecb0bec049b6715.bindTooltip(
+                `<div>
+                     AKL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_57140a9dd7f34f5e96c509900269704b = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_57140a9dd7f34f5e96c509900269704b.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_33acbf4f2769453591bb27ee98456639 = L.polyline(
+                [[-37.0080986, 174.7920074], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_33acbf4f2769453591bb27ee98456639.bindTooltip(
+                `<div>
+                     AKL ⇄ PPT 4093.365km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_881ddc87e7364a02830cb9e6fb2c17de = L.marker(
+                [-37.0080986, 174.7920074],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_881ddc87e7364a02830cb9e6fb2c17de.bindTooltip(
+                `<div>
+                     AKL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f6a67cd47e264cf29392d8d77227052c = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_f6a67cd47e264cf29392d8d77227052c.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_74c13c7849214475bf0c4c90d1996178 = L.polyline(
+                [[-37.0080986, 174.7920074], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_74c13c7849214475bf0c4c90d1996178.bindTooltip(
+                `<div>
+                     AKL ⇄ PPT 4093.365km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cb7201a6e7424d10acc72f0912920226 = L.marker(
+                [-37.0080986, 174.7920074],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_cb7201a6e7424d10acc72f0912920226.bindTooltip(
+                `<div>
+                     AKL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9352369d8a904ac8b77cc43b6cf2067c = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_9352369d8a904ac8b77cc43b6cf2067c.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_29007493e70e47d69a15562942b5a327 = L.polyline(
+                [[-37.0080986, 174.7920074], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_29007493e70e47d69a15562942b5a327.bindTooltip(
+                `<div>
+                     AKL ⇄ PPT 4093.365km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ec7b08ad666d44eba8fa26696cff4732 = L.marker(
+                [-9.768790245, -139.0110016],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_ec7b08ad666d44eba8fa26696cff4732.bindTooltip(
+                `<div>
+                     AUQ
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5809cc22585547ca9d71282886b43146 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_5809cc22585547ca9d71282886b43146.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_612d2793624748bcb70e01abae1a6189 = L.polyline(
+                [[-9.768790245, -139.0110016], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_612d2793624748bcb70e01abae1a6189.bindTooltip(
+                `<div>
+                     AUQ ⇄ PPT 1434.405km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2ebc28855ce44a2b81f12c82fcde5fe5 = L.marker(
+                [-16.58390045, -143.6580048],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_2ebc28855ce44a2b81f12c82fcde5fe5.bindTooltip(
+                `<div>
+                     MKP
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d210fa14c77c474ba3d3463ce4bb0859 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_d210fa14c77c474ba3d3463ce4bb0859.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_8a7d19bcc68b4af691aec44002ef2534 = L.polyline(
+                [[-16.58390045, -143.6580048], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_8a7d19bcc68b4af691aec44002ef2534.bindTooltip(
+                `<div>
+                     MKP ⇄ PPT 641.456km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_661c47dc4f134ec9b150265f197f4334 = L.marker(
+                [-22.4340992, -151.3609924],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_661c47dc4f134ec9b150265f197f4334.bindTooltip(
+                `<div>
+                     RUR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7e46ae44ee284c97b34c0acfd7e95e9e = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_7e46ae44ee284c97b34c0acfd7e95e9e.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_287a2363f8af4d6dad945c924fa87035 = L.polyline(
+                [[-22.4340992, -151.3609924], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_287a2363f8af4d6dad945c924fa87035.bindTooltip(
+                `<div>
+                     RUR ⇄ PPT 572.765km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dc2d52e29447402ba399f65a3600cd1a = L.marker(
+                [-16.42650032, -152.2440033],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_dc2d52e29447402ba399f65a3600cd1a.bindTooltip(
+                `<div>
+                     MAU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a9732c50303c4e9785fa768317dbdccb = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_a9732c50303c4e9785fa768317dbdccb.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_82593dc8c5254e03b7c963d88187d2fc = L.polyline(
+                [[-16.42650032, -152.2440033], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_82593dc8c5254e03b7c963d88187d2fc.bindTooltip(
+                `<div>
+                     MAU ⇄ PPT 307.153km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4135d5a8a52544d1a43acee8e313156e = L.marker(
+                [-14.86810017, -148.7169952],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_4135d5a8a52544d1a43acee8e313156e.bindTooltip(
+                `<div>
+                     MVT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0fa696b0d11243bdad4d06db19d44b40 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_0fa696b0d11243bdad4d06db19d44b40.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_d6da786bb2494cd1b25b7fc3bbda78b5 = L.polyline(
+                [[-14.86810017, -148.7169952], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_d6da786bb2494cd1b25b7fc3bbda78b5.bindTooltip(
+                `<div>
+                     MVT ⇄ PPT 313.377km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2230f1cfb267446fab69696629c0442d = L.marker(
+                [-14.95429993, -147.6609955],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_2230f1cfb267446fab69696629c0442d.bindTooltip(
+                `<div>
+                     RGI
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7051455326e1492ab789b646a071426d = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_7051455326e1492ab789b646a071426d.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_a13ba7ea045f45f8b62d18958e490b9a = L.polyline(
+                [[-14.95429993, -147.6609955], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_a13ba7ea045f45f8b62d18958e490b9a.bindTooltip(
+                `<div>
+                     RGI ⇄ PPT 355.934km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_93b2d727fa2748699316c710908cffaf = L.marker(
+                [-15.2482996, -146.6170044],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_93b2d727fa2748699316c710908cffaf.bindTooltip(
+                `<div>
+                     AXR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c307ce9f3ef0449aae4121a1fdb60ce1 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_c307ce9f3ef0449aae4121a1fdb60ce1.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_f049e89d927d4352ab5ed245cade70fc = L.polyline(
+                [[-15.2482996, -146.6170044], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_f049e89d927d4352ab5ed245cade70fc.bindTooltip(
+                `<div>
+                     AXR ⇄ PPT 409.17km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d76c2f560d5943c6a20500ce37d15ef6 = L.marker(
+                [-14.4368, -146.0700073],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_d76c2f560d5943c6a20500ce37d15ef6.bindTooltip(
+                `<div>
+                     XMH
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f5e86661e1e7448c883f24eb1710ae8e = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_f5e86661e1e7448c883f24eb1710ae8e.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_c3a05309705f49aba8bd38cb067f03e0 = L.polyline(
+                [[-14.4368, -146.0700073], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_c3a05309705f49aba8bd38cb067f03e0.bindTooltip(
+                `<div>
+                     XMH ⇄ PPT 512.843km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6a4077cdd17b433181e49218b47482fb = L.marker(
+                [-22.01460075, 166.2129974],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_6a4077cdd17b433181e49218b47482fb.bindTooltip(
+                `<div>
+                     NOU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c7066c02990440b69cd2947f5ae38138 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_c7066c02990440b69cd2947f5ae38138.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_1f8862272f07413290ac076e11794468 = L.polyline(
+                [[-22.01460075, 166.2129974], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_1f8862272f07413290ac076e11794468.bindTooltip(
+                `<div>
+                     NOU ⇄ PPT 4633.767km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8e889e4cb77e4416bf1d7100c188a82d = L.marker(
+                [-8.795599937, -140.2290039],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_8e889e4cb77e4416bf1d7100c188a82d.bindTooltip(
+                `<div>
+                     NHV
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_361ba484ac0a487b9a645f21eedbf010 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_361ba484ac0a487b9a645f21eedbf010.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_f1037bcae8664f5d914ceaa20fa2c260 = L.polyline(
+                [[-8.795599937, -140.2290039], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_f1037bcae8664f5d914ceaa20fa2c260.bindTooltip(
+                `<div>
+                     NHV ⇄ PPT 1406.005km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dafb104b030248339d87d781ac32b105 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_dafb104b030248339d87d781ac32b105.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_02812eea13964e768e600f4d0eabe150 = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_02812eea13964e768e600f4d0eabe150.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_748915162ee84131b31e8a22c4d4c85a = L.polyline(
+                [[-17.553699, -149.606995], [33.94250107, -118.4079971]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_748915162ee84131b31e8a22c4d4c85a.bindTooltip(
+                `<div>
+                     PPT ⇄ LAX 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_394466cad3644a16b14499fbd8a07123 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_394466cad3644a16b14499fbd8a07123.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4171ce06911f426bba527240f803062c = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_4171ce06911f426bba527240f803062c.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_e41f27f821df410ba667a2c4c3fab6ab = L.polyline(
+                [[-17.553699, -149.606995], [33.94250107, -118.4079971]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_e41f27f821df410ba667a2c4c3fab6ab.bindTooltip(
+                `<div>
+                     PPT ⇄ LAX 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_64c1504390964f4496dd3bc795bfb6a8 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_64c1504390964f4496dd3bc795bfb6a8.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d773fffe4cde46e289d8290e94e52d3f = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_d773fffe4cde46e289d8290e94e52d3f.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_0e3c0a1d66d34466b62f984d635e2155 = L.polyline(
+                [[-17.553699, -149.606995], [33.94250107, -118.4079971]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_0e3c0a1d66d34466b62f984d635e2155.bindTooltip(
+                `<div>
+                     PPT ⇄ LAX 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_81dc50d6725b4b9f80b5f297f6e3221d = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_81dc50d6725b4b9f80b5f297f6e3221d.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f081d398cb424aada202d7735a94ce3d = L.marker(
+                [-37.0080986, 174.7920074],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_f081d398cb424aada202d7735a94ce3d.bindTooltip(
+                `<div>
+                     AKL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_6fe060241056429c9c97d9e8116bd7f1 = L.polyline(
+                [[-17.553699, -149.606995], [-37.0080986, 174.7920074]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_6fe060241056429c9c97d9e8116bd7f1.bindTooltip(
+                `<div>
+                     PPT ⇄ AKL 4093.365km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_49c8790744b84e37bfef1a16fdd7c045 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_49c8790744b84e37bfef1a16fdd7c045.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_00a26c7027e848c3a5cdf0d305fac30b = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_00a26c7027e848c3a5cdf0d305fac30b.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_ad9b981531234a6aa327cd5d5150743c = L.polyline(
+                [[-17.553699, -149.606995], [33.94250107, -118.4079971]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_ad9b981531234a6aa327cd5d5150743c.bindTooltip(
+                `<div>
+                     PPT ⇄ LAX 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b481951fd0644fb7a8bdb352e0d28a36 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_b481951fd0644fb7a8bdb352e0d28a36.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d3863b9778c74fb5a0a2ee4ca46451a8 = L.marker(
+                [-37.0080986, 174.7920074],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_d3863b9778c74fb5a0a2ee4ca46451a8.bindTooltip(
+                `<div>
+                     AKL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_6ca0a8d1d8e94078b11c56e4a9f76733 = L.polyline(
+                [[-17.553699, -149.606995], [-37.0080986, 174.7920074]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_6ca0a8d1d8e94078b11c56e4a9f76733.bindTooltip(
+                `<div>
+                     PPT ⇄ AKL 4093.365km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bd97615f77d34cf4bd3fed30a60d3f53 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_bd97615f77d34cf4bd3fed30a60d3f53.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bde0a3943d574e18a46db72669f00b2e = L.marker(
+                [-37.0080986, 174.7920074],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_bde0a3943d574e18a46db72669f00b2e.bindTooltip(
+                `<div>
+                     AKL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_f1223540c63649b8ab5ae7d0e598a55d = L.polyline(
+                [[-17.553699, -149.606995], [-37.0080986, 174.7920074]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_f1223540c63649b8ab5ae7d0e598a55d.bindTooltip(
+                `<div>
+                     PPT ⇄ AKL 4093.365km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5031891473c24b7a9673d9c10a272f14 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_5031891473c24b7a9673d9c10a272f14.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a81ada672c0742418d6d3b91f7182ad6 = L.marker(
+                [-14.45580006, -145.0249939],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_a81ada672c0742418d6d3b91f7182ad6.bindTooltip(
+                `<div>
+                     TKX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_5682841e5c854f0f9f17f5240ea09576 = L.polyline(
+                [[-17.553699, -149.606995], [-14.45580006, -145.0249939]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_5682841e5c854f0f9f17f5240ea09576.bindTooltip(
+                `<div>
+                     PPT ⇄ TKX 598.69km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_aa19d19f137f439586363afd8a74caf5 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_aa19d19f137f439586363afd8a74caf5.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_267e00c50d354961b54a55853971469f = L.marker(
+                [-14.95429993, -147.6609955],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_267e00c50d354961b54a55853971469f.bindTooltip(
+                `<div>
+                     RGI
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_96ec580e454b4e08bba52e9f27a0dcc2 = L.polyline(
+                [[-17.553699, -149.606995], [-14.95429993, -147.6609955]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_96ec580e454b4e08bba52e9f27a0dcc2.bindTooltip(
+                `<div>
+                     PPT ⇄ RGI 355.934km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9514923c76a84fc8b3d3b56b1212d23e = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_9514923c76a84fc8b3d3b56b1212d23e.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d872b895a9ce4296a85ed97ee0573c26 = L.marker(
+                [-37.0080986, 174.7920074],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_d872b895a9ce4296a85ed97ee0573c26.bindTooltip(
+                `<div>
+                     AKL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_89df2416ce8342a5956eb70a84cf1110 = L.polyline(
+                [[-17.553699, -149.606995], [-37.0080986, 174.7920074]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_89df2416ce8342a5956eb70a84cf1110.bindTooltip(
+                `<div>
+                     PPT ⇄ AKL 4093.365km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6c5e2b1840eb4ea8973575d995fefd11 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_6c5e2b1840eb4ea8973575d995fefd11.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ce05e3a2377248c8b44f0161ed126595 = L.marker(
+                [-15.1196003, -148.2310028],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_ce05e3a2377248c8b44f0161ed126595.bindTooltip(
+                `<div>
+                     TIH
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_4c279b7ba0e2434b908383ad17b88573 = L.polyline(
+                [[-17.553699, -149.606995], [-15.1196003, -148.2310028]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_4c279b7ba0e2434b908383ad17b88573.bindTooltip(
+                `<div>
+                     PPT ⇄ TIH 307.913km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b9df1861404148728b9cc415406249fa = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_b9df1861404148728b9cc415406249fa.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0149921005d94741b11f435ee168a253 = L.marker(
+                [-37.0080986, 174.7920074],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_0149921005d94741b11f435ee168a253.bindTooltip(
+                `<div>
+                     AKL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_37876e21e9f2423c8f0a3d49b1ccb35e = L.polyline(
+                [[-17.553699, -149.606995], [-37.0080986, 174.7920074]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_37876e21e9f2423c8f0a3d49b1ccb35e.bindTooltip(
+                `<div>
+                     PPT ⇄ AKL 4093.365km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_de52accb5b7947e8a0934da3e228c84f = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_de52accb5b7947e8a0934da3e228c84f.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_898e812a3ae640ffbfae3a17c1d220d9 = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_898e812a3ae640ffbfae3a17c1d220d9.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_8da922f96f4841aebb6c8d338f2ca3d4 = L.polyline(
+                [[-17.553699, -149.606995], [33.94250107, -118.4079971]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_8da922f96f4841aebb6c8d338f2ca3d4.bindTooltip(
+                `<div>
+                     PPT ⇄ LAX 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9b7b8d73b7a54746b120fd3d697a9c3e = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_9b7b8d73b7a54746b120fd3d697a9c3e.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_28441597f87a479586726f1ca0e48c8e = L.marker(
+                [-37.0080986, 174.7920074],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_28441597f87a479586726f1ca0e48c8e.bindTooltip(
+                `<div>
+                     AKL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_551068da7cc34994bdc2731d473ba978 = L.polyline(
+                [[-17.553699, -149.606995], [-37.0080986, 174.7920074]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_551068da7cc34994bdc2731d473ba978.bindTooltip(
+                `<div>
+                     PPT ⇄ AKL 4093.365km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4d5980bf4aea49e7b6f9325c1737f38e = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_4d5980bf4aea49e7b6f9325c1737f38e.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6d66ae663d3e4fdb898174ff1de35ee7 = L.marker(
+                [-9.768790245, -139.0110016],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_6d66ae663d3e4fdb898174ff1de35ee7.bindTooltip(
+                `<div>
+                     AUQ
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_3c5ca8dac41a4b828d500eb95ed3e755 = L.polyline(
+                [[-17.553699, -149.606995], [-9.768790245, -139.0110016]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_3c5ca8dac41a4b828d500eb95ed3e755.bindTooltip(
+                `<div>
+                     PPT ⇄ AUQ 1434.405km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a6dd0e5a9a874e4b86b07570bd4af151 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_a6dd0e5a9a874e4b86b07570bd4af151.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9727c4055b0f49078bb9bf5951ccbeba = L.marker(
+                [-37.0080986, 174.7920074],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_9727c4055b0f49078bb9bf5951ccbeba.bindTooltip(
+                `<div>
+                     AKL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_6357c2847c8a416585413a798fba8f8e = L.polyline(
+                [[-17.553699, -149.606995], [-37.0080986, 174.7920074]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_6357c2847c8a416585413a798fba8f8e.bindTooltip(
+                `<div>
+                     PPT ⇄ AKL 4093.365km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_457c7c989cc44d7090fa07fd0587368b = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_457c7c989cc44d7090fa07fd0587368b.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_86e298d666324891ba32adbb83d2f7be = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_86e298d666324891ba32adbb83d2f7be.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_67997a8c5118473bbed9708fdc42adc2 = L.polyline(
+                [[-17.553699, -149.606995], [33.94250107, -118.4079971]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_67997a8c5118473bbed9708fdc42adc2.bindTooltip(
+                `<div>
+                     PPT ⇄ LAX 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c08f8b516ea04b838464b7073ddc67a6 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_c08f8b516ea04b838464b7073ddc67a6.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_74bd79ff8b5848a2a6eeb4e5c767cc1f = L.marker(
+                [-8.795599937, -140.2290039],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_74bd79ff8b5848a2a6eeb4e5c767cc1f.bindTooltip(
+                `<div>
+                     NHV
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_32e98bca6d9540d2a685c41ea6100d3a = L.polyline(
+                [[-17.553699, -149.606995], [-8.795599937, -140.2290039]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_32e98bca6d9540d2a685c41ea6100d3a.bindTooltip(
+                `<div>
+                     PPT ⇄ NHV 1406.005km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_18a1c7394b1742b99b5fd3e8d7813eb0 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_18a1c7394b1742b99b5fd3e8d7813eb0.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_695731f7de1148a680bc337be83d03b1 = L.marker(
+                [-17.49, -149.761993],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_695731f7de1148a680bc337be83d03b1.bindTooltip(
+                `<div>
+                     MOZ
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_5e71141d94004b93b57e9b845ed0fe10 = L.polyline(
+                [[-17.553699, -149.606995], [-17.49, -149.761993]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_5e71141d94004b93b57e9b845ed0fe10.bindTooltip(
+                `<div>
+                     PPT ⇄ MOZ 17.897km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_20a4f5294e37467684ffed8b188a13f5 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_20a4f5294e37467684ffed8b188a13f5.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a5996c17c2f148ac853638b4b98ae0b1 = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_a5996c17c2f148ac853638b4b98ae0b1.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_3a91a69d9618499b96d1dc51bf9e2ab6 = L.polyline(
+                [[-17.553699, -149.606995], [33.94250107, -118.4079971]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_3a91a69d9618499b96d1dc51bf9e2ab6.bindTooltip(
+                `<div>
+                     PPT ⇄ LAX 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cc1e466ddcc84dbaa9f5c424e97e1ef0 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_cc1e466ddcc84dbaa9f5c424e97e1ef0.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a256f36420594e3087393cc73872adda = L.marker(
+                [21.32062, -157.924228],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_a256f36420594e3087393cc73872adda.bindTooltip(
+                `<div>
+                     HNL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_b64306366ed04a46aba657887331ad8f = L.polyline(
+                [[-17.553699, -149.606995], [21.32062, -157.924228]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_b64306366ed04a46aba657887331ad8f.bindTooltip(
+                `<div>
+                     PPT ⇄ HNL 4416.599km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3b3dea4eb69845bda327161074fb0cd1 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_3b3dea4eb69845bda327161074fb0cd1.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c1ad965430cb43349c834cbe31689b45 = L.marker(
+                [37.61899948, -122.375],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_c1ad965430cb43349c834cbe31689b45.bindTooltip(
+                `<div>
+                     SFO
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_a729713b13b44f25a3889c2e92fa4a19 = L.polyline(
+                [[-17.553699, -149.606995], [37.61899948, -122.375]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_a729713b13b44f25a3889c2e92fa4a19.bindTooltip(
+                `<div>
+                     PPT ⇄ SFO 6764.015km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e258aaaf66944b40a8ab4d80ba091c9f = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_e258aaaf66944b40a8ab4d80ba091c9f.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e5d1b8a317494101ab108c79142b5f16 = L.marker(
+                [-27.16480064, -109.4219971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_e5d1b8a317494101ab108c79142b5f16.bindTooltip(
+                `<div>
+                     IPC
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_4291702b6be8412eaedf80b800079742 = L.polyline(
+                [[-17.553699, -149.606995], [-27.16480064, -109.4219971]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_4291702b6be8412eaedf80b800079742.bindTooltip(
+                `<div>
+                     PPT ⇄ IPC 4248.822km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_74cabd42b8094f7ab1e416dbb11ab304 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_74cabd42b8094f7ab1e416dbb11ab304.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_90c2874d7cd44d1ca792984f2ce93c71 = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_90c2874d7cd44d1ca792984f2ce93c71.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_1054c73120da41228a1f2b306cdb113a = L.polyline(
+                [[-17.553699, -149.606995], [33.94250107, -118.4079971]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_1054c73120da41228a1f2b306cdb113a.bindTooltip(
+                `<div>
+                     PPT ⇄ LAX 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bba3033572194eb09c877fb812c4c224 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_bba3033572194eb09c877fb812c4c224.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5a3138d41ae34818b391c6ccc72bd80a = L.marker(
+                [-21.20269966, -159.8059998],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_5a3138d41ae34818b391c6ccc72bd80a.bindTooltip(
+                `<div>
+                     RAR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_48f40e6381974abfa4ff6ca2e09d88a1 = L.polyline(
+                [[-17.553699, -149.606995], [-21.20269966, -159.8059998]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_48f40e6381974abfa4ff6ca2e09d88a1.bindTooltip(
+                `<div>
+                     PPT ⇄ RAR 1143.813km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_15fa637962e94114a82ee9ef950818f8 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_15fa637962e94114a82ee9ef950818f8.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_28f2983a6ac8441790ddcd83593a12d4 = L.marker(
+                [-15.66329956, -146.8849945],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_28f2983a6ac8441790ddcd83593a12d4.bindTooltip(
+                `<div>
+                     KKR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_b0515be92e9a4819a1acc39f31b8ca0f = L.polyline(
+                [[-17.553699, -149.606995], [-15.66329956, -146.8849945]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_b0515be92e9a4819a1acc39f31b8ca0f.bindTooltip(
+                `<div>
+                     PPT ⇄ KKR 358.191km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ddd87fdad87b4bbd8a16c9cffa9cbfcd = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_ddd87fdad87b4bbd8a16c9cffa9cbfcd.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fbd86c6cfe044087b5056377369f242d = L.marker(
+                [-22.4340992, -151.3609924],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_fbd86c6cfe044087b5056377369f242d.bindTooltip(
+                `<div>
+                     RUR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_bb07a41698de4a7ebfd2b492aa05de15 = L.polyline(
+                [[-17.553699, -149.606995], [-22.4340992, -151.3609924]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_bb07a41698de4a7ebfd2b492aa05de15.bindTooltip(
+                `<div>
+                     PPT ⇄ RUR 572.765km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c08ec8c3563c4cb1853cc390782eaffc = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_c08ec8c3563c4cb1853cc390782eaffc.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1ac93910215b4e139c08f97c0a9c1a38 = L.marker(
+                [-16.05410004, -145.6569977],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_1ac93910215b4e139c08f97c0a9c1a38.bindTooltip(
+                `<div>
+                     FAV
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_201c2fa03c7846f7856ed67e40a90be4 = L.polyline(
+                [[-17.553699, -149.606995], [-16.05410004, -145.6569977]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_201c2fa03c7846f7856ed67e40a90be4.bindTooltip(
+                `<div>
+                     PPT ⇄ FAV 452.302km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2eb1183a506d427690b95124ac25104b = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_2eb1183a506d427690b95124ac25104b.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2b356a000a684bbea93ee13d0ff8938a = L.marker(
+                [-22.63725, -152.8059],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_2b356a000a684bbea93ee13d0ff8938a.bindTooltip(
+                `<div>
+                     RMT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_947316adad634fa2a0232ee23f7d1dfe = L.polyline(
+                [[-17.553699, -149.606995], [-22.63725, -152.8059]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_947316adad634fa2a0232ee23f7d1dfe.bindTooltip(
+                `<div>
+                     PPT ⇄ RMT 656.511km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cffcca7e1003485eaeba8cb4cb80c0ea = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_cffcca7e1003485eaeba8cb4cb80c0ea.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_69346ef2729141d68d90f4d065bf1d57 = L.marker(
+                [-16.44440079, -151.7510071],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_69346ef2729141d68d90f4d065bf1d57.bindTooltip(
+                `<div>
+                     BOB
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_90144cbf0e27408fb641ad7af85576a4 = L.polyline(
+                [[-17.553699, -149.606995], [-16.44440079, -151.7510071]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_90144cbf0e27408fb641ad7af85576a4.bindTooltip(
+                `<div>
+                     PPT ⇄ BOB 259.211km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_728e2420cd3749259573eddeeb152947 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_728e2420cd3749259573eddeeb152947.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8e93dde27c3c4e6a8955726bc2f85352 = L.marker(
+                [-16.7229, -151.466003],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_8e93dde27c3c4e6a8955726bc2f85352.bindTooltip(
+                `<div>
+                     RFP
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_01208e57131f4774884ea0fa13e61e29 = L.polyline(
+                [[-17.553699, -149.606995], [-16.7229, -151.466003]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_01208e57131f4774884ea0fa13e61e29.bindTooltip(
+                `<div>
+                     PPT ⇄ RFP 218.065km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a96d70fada0e4705b2f8b7e3541eff93 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_a96d70fada0e4705b2f8b7e3541eff93.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0bdab5d9514445f5a45bfd701d5e3441 = L.marker(
+                [-16.42650032, -152.2440033],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_0bdab5d9514445f5a45bfd701d5e3441.bindTooltip(
+                `<div>
+                     MAU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_89378d6e65d8408ba272fed98f579ad0 = L.polyline(
+                [[-17.553699, -149.606995], [-16.42650032, -152.2440033]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_89378d6e65d8408ba272fed98f579ad0.bindTooltip(
+                `<div>
+                     PPT ⇄ MAU 307.153km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1017582a6b4c4389b155afe78eb14b12 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_1017582a6b4c4389b155afe78eb14b12.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f29fa9b4586f4714b529a95c10f9661c = L.marker(
+                [35.76470184, 140.3860016],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_f29fa9b4586f4714b529a95c10f9661c.bindTooltip(
+                `<div>
+                     NRT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_e245b8e0836645cab0ee144f7eb84aa8 = L.polyline(
+                [[-17.553699, -149.606995], [35.76470184, 140.3860016]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_e245b8e0836645cab0ee144f7eb84aa8.bindTooltip(
+                `<div>
+                     PPT ⇄ NRT 9444.639km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_906e3e74413b4c8cbf928ffc5d2ac424 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_906e3e74413b4c8cbf928ffc5d2ac424.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e4ff41b4af064ff3b4651d3a3ca20577 = L.marker(
+                [-21.20269966, -159.8059998],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_e4ff41b4af064ff3b4651d3a3ca20577.bindTooltip(
+                `<div>
+                     RAR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_85f264d44e964c09bfa9acb6619a8b08 = L.polyline(
+                [[-17.553699, -149.606995], [-21.20269966, -159.8059998]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_85f264d44e964c09bfa9acb6619a8b08.bindTooltip(
+                `<div>
+                     PPT ⇄ RAR 1143.813km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_46cd737c6039457686dcab46ca9cd7bc = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_46cd737c6039457686dcab46ca9cd7bc.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ee4ca932c10d4097aa09a7c0840541f1 = L.marker(
+                [-15.2482996, -146.6170044],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_ee4ca932c10d4097aa09a7c0840541f1.bindTooltip(
+                `<div>
+                     AXR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_9af8d0dce2d84413aef769f827046b54 = L.polyline(
+                [[-17.553699, -149.606995], [-15.2482996, -146.6170044]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_9af8d0dce2d84413aef769f827046b54.bindTooltip(
+                `<div>
+                     PPT ⇄ AXR 409.17km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ba1d7dc682604d4bb141b38ff1d5c25a = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_ba1d7dc682604d4bb141b38ff1d5c25a.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_19a1148f8d934b9c9d46f98819b64e51 = L.marker(
+                [-22.01460075, 166.2129974],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_19a1148f8d934b9c9d46f98819b64e51.bindTooltip(
+                `<div>
+                     NOU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_3871ee8332434624a43fd52fa30555fc = L.polyline(
+                [[-17.553699, -149.606995], [-22.01460075, 166.2129974]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_3871ee8332434624a43fd52fa30555fc.bindTooltip(
+                `<div>
+                     PPT ⇄ NOU 4633.767km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3259f38419d94617a8a50707c5ee3c6c = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_3259f38419d94617a8a50707c5ee3c6c.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_11c8e5bd16fa4612bddd8d502fff71c9 = L.marker(
+                [35.76470184, 140.3860016],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_11c8e5bd16fa4612bddd8d502fff71c9.bindTooltip(
+                `<div>
+                     NRT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_143614fee6fd4d4ab7fdc1f6a17c1e46 = L.polyline(
+                [[-17.553699, -149.606995], [35.76470184, 140.3860016]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_143614fee6fd4d4ab7fdc1f6a17c1e46.bindTooltip(
+                `<div>
+                     PPT ⇄ NRT 9444.639km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e4488dd0aae04e97b56c2d47990a8d08 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_e4488dd0aae04e97b56c2d47990a8d08.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f6ebca0acd9a447e9b01e7c6e00b0a57 = L.marker(
+                [35.76470184, 140.3860016],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_f6ebca0acd9a447e9b01e7c6e00b0a57.bindTooltip(
+                `<div>
+                     NRT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_3efde405fb674864b704c83f36ff6242 = L.polyline(
+                [[-17.553699, -149.606995], [35.76470184, 140.3860016]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_3efde405fb674864b704c83f36ff6242.bindTooltip(
+                `<div>
+                     PPT ⇄ NRT 9444.639km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9604c37cc4604ddd91aac7973eb2ca09 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_9604c37cc4604ddd91aac7973eb2ca09.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8b5e89e82c6645dc8691098a06165682 = L.marker(
+                [-21.20269966, -159.8059998],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_8b5e89e82c6645dc8691098a06165682.bindTooltip(
+                `<div>
+                     RAR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_6602e95981114b929d91c75656c7dd5a = L.polyline(
+                [[-17.553699, -149.606995], [-21.20269966, -159.8059998]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_6602e95981114b929d91c75656c7dd5a.bindTooltip(
+                `<div>
+                     PPT ⇄ RAR 1143.813km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_088aece41d6b45709952dfe548a9fcfa = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_088aece41d6b45709952dfe548a9fcfa.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1e5c750e07b54b0996844309f980df26 = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_1e5c750e07b54b0996844309f980df26.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_1d4c1f9c5f9f4ceab6c87774ce9f7b53 = L.polyline(
+                [[-17.553699, -149.606995], [33.94250107, -118.4079971]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_1d4c1f9c5f9f4ceab6c87774ce9f7b53.bindTooltip(
+                `<div>
+                     PPT ⇄ LAX 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f5f524c0a6b14aab9a81f68c62e19f2a = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_f5f524c0a6b14aab9a81f68c62e19f2a.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2c19a5f4cffe421fb82f1d96be25fcc1 = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_2c19a5f4cffe421fb82f1d96be25fcc1.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_63e3eb458e85486fa7180dfcd96e1e74 = L.polyline(
+                [[-17.553699, -149.606995], [33.94250107, -118.4079971]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_63e3eb458e85486fa7180dfcd96e1e74.bindTooltip(
+                `<div>
+                     PPT ⇄ LAX 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_830074d55c4e4b908b806a90bd8f3ec3 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_830074d55c4e4b908b806a90bd8f3ec3.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_21fb6a24c99c44f3a0856f2f58323295 = L.marker(
+                [37.61899948, -122.375],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_21fb6a24c99c44f3a0856f2f58323295.bindTooltip(
+                `<div>
+                     SFO
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_e999c0afe3564c11898f4f9c749c6eb8 = L.polyline(
+                [[-17.553699, -149.606995], [37.61899948, -122.375]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_e999c0afe3564c11898f4f9c749c6eb8.bindTooltip(
+                `<div>
+                     PPT ⇄ SFO 6764.015km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_26f7fd50f9914fe8a7aa0f66aa7d41ee = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_26f7fd50f9914fe8a7aa0f66aa7d41ee.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_29723ce5e83b41a396dfdaca83ae868c = L.marker(
+                [-18.07480049, -140.9459991],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_29723ce5e83b41a396dfdaca83ae868c.bindTooltip(
+                `<div>
+                     HOI
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_23462473933d4d1aac8104d117671a1e = L.polyline(
+                [[-17.553699, -149.606995], [-18.07480049, -140.9459991]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_23462473933d4d1aac8104d117671a1e.bindTooltip(
+                `<div>
+                     PPT ⇄ HOI 918.627km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9473fbef7e6942f89834d38208869c81 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_9473fbef7e6942f89834d38208869c81.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2d80eb15627147beac63d9cd17cd8ed1 = L.marker(
+                [-14.42809963, -146.2570038],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_2d80eb15627147beac63d9cd17cd8ed1.bindTooltip(
+                `<div>
+                     AHE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_73170974fdf9484498f13e6b857fb8ff = L.polyline(
+                [[-17.553699, -149.606995], [-14.42809963, -146.2570038]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_73170974fdf9484498f13e6b857fb8ff.bindTooltip(
+                `<div>
+                     PPT ⇄ AHE 498.975km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7914b5636da5411c922340dce2c608b9 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_7914b5636da5411c922340dce2c608b9.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_95b5c13637f8404285a5e88100967500 = L.marker(
+                [-16.58390045, -143.6580048],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_95b5c13637f8404285a5e88100967500.bindTooltip(
+                `<div>
+                     MKP
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_f933c6a370b144a68a176e5e5877b0ce = L.polyline(
+                [[-17.553699, -149.606995], [-16.58390045, -143.6580048]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_f933c6a370b144a68a176e5e5877b0ce.bindTooltip(
+                `<div>
+                     PPT ⇄ MKP 641.456km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6f3d834bd715456da4acef7270bd0387 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_6f3d834bd715456da4acef7270bd0387.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1b10ee29ae8544cda7055490ab054451 = L.marker(
+                [-23.07990074, -134.8899994],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_1b10ee29ae8544cda7055490ab054451.bindTooltip(
+                `<div>
+                     GMR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_b9830cffc3e84895aead7cf84278cf72 = L.polyline(
+                [[-17.553699, -149.606995], [-23.07990074, -134.8899994]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_b9830cffc3e84895aead7cf84278cf72.bindTooltip(
+                `<div>
+                     PPT ⇄ GMR 1651.842km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f0b7a52d0c75438cb0bf2b090d0ebc4b = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_f0b7a52d0c75438cb0bf2b090d0ebc4b.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_23763065906c4a4da23e6fadb2c97f32 = L.marker(
+                [-14.86810017, -148.7169952],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_23763065906c4a4da23e6fadb2c97f32.bindTooltip(
+                `<div>
+                     MVT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_d901a9e541a943358362fabd3413d0d3 = L.polyline(
+                [[-17.553699, -149.606995], [-14.86810017, -148.7169952]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_d901a9e541a943358362fabd3413d0d3.bindTooltip(
+                `<div>
+                     PPT ⇄ MVT 313.377km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_281313c47b204cec99258a214b6a122e = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_281313c47b204cec99258a214b6a122e.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b7f0ab31e5c14cf6ac4f302b09fb806c = L.marker(
+                [-16.68720055, -151.0220032],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_b7f0ab31e5c14cf6ac4f302b09fb806c.bindTooltip(
+                `<div>
+                     HUH
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_928f76824afc432693752ae6c062e92a = L.polyline(
+                [[-17.553699, -149.606995], [-16.68720055, -151.0220032]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_928f76824afc432693752ae6c062e92a.bindTooltip(
+                `<div>
+                     PPT ⇄ HUH 178.588km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b248b05c1435429a948f6c9eff8bc16e = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_b248b05c1435429a948f6c9eff8bc16e.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2c6066a7fe38447e8af764a3f182a833 = L.marker(
+                [-23.36540031, -149.5240021],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_2c6066a7fe38447e8af764a3f182a833.bindTooltip(
+                `<div>
+                     TUB
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_6b39dab968044068bfe00896543a781c = L.polyline(
+                [[-17.553699, -149.606995], [-23.36540031, -149.5240021]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_6b39dab968044068bfe00896543a781c.bindTooltip(
+                `<div>
+                     PPT ⇄ TUB 646.289km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0c4f2122def847acaf59f89d1b9dcdd0 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_0c4f2122def847acaf59f89d1b9dcdd0.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d35eba20b6134945a89f7e5f67eb7a17 = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_d35eba20b6134945a89f7e5f67eb7a17.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_ca6a64c9e77c451fbb5bc01f55cb3270 = L.polyline(
+                [[-17.553699, -149.606995], [33.94250107, -118.4079971]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_ca6a64c9e77c451fbb5bc01f55cb3270.bindTooltip(
+                `<div>
+                     PPT ⇄ LAX 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c8a7b55ebc974777b44c4a2ba7419750 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_c8a7b55ebc974777b44c4a2ba7419750.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2deec0c041e247bb9c2d8dfb3aa782bf = L.marker(
+                [-14.4368, -146.0700073],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_2deec0c041e247bb9c2d8dfb3aa782bf.bindTooltip(
+                `<div>
+                     XMH
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_b75c56bc6429466b8a8e84746cf11271 = L.polyline(
+                [[-17.553699, -149.606995], [-14.4368, -146.0700073]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_b75c56bc6429466b8a8e84746cf11271.bindTooltip(
+                `<div>
+                     PPT ⇄ XMH 512.843km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3005dc706f91442b9ac253c4cb8cd34a = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_3005dc706f91442b9ac253c4cb8cd34a.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_742ecc92866c4099a3525ee046ee5ef0 = L.marker(
+                [-23.8852005, -147.6620026],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_742ecc92866c4099a3525ee046ee5ef0.bindTooltip(
+                `<div>
+                     RVV
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_732d313a59a144be98fb50dec353c96c = L.polyline(
+                [[-17.553699, -149.606995], [-23.8852005, -147.6620026]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_732d313a59a144be98fb50dec353c96c.bindTooltip(
+                `<div>
+                     PPT ⇄ RVV 732.474km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9dfdf50fbcc04414b108cb0083dac51d = L.marker(
+                [-15.66329956, -146.8849945],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_9dfdf50fbcc04414b108cb0083dac51d.bindTooltip(
+                `<div>
+                     KKR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_33f16bc4e5eb419ea54dc8650b6b9dca = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_33f16bc4e5eb419ea54dc8650b6b9dca.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_8bf33ffcd0894cdf9dbbef6ed18f156c = L.polyline(
+                [[-15.66329956, -146.8849945], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_8bf33ffcd0894cdf9dbbef6ed18f156c.bindTooltip(
+                `<div>
+                     KKR ⇄ PPT 358.191km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a85202f400ce453fb47c96f1e057a24a = L.marker(
+                [-21.20269966, -159.8059998],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_a85202f400ce453fb47c96f1e057a24a.bindTooltip(
+                `<div>
+                     RAR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f0daa441c62f418ea478c2cdeca00c06 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_f0daa441c62f418ea478c2cdeca00c06.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_f5de21553a254e1ebbb182bb47011aae = L.polyline(
+                [[-21.20269966, -159.8059998], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_f5de21553a254e1ebbb182bb47011aae.bindTooltip(
+                `<div>
+                     RAR ⇄ PPT 1143.813km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_384c4564d3554c66b3153ab17f063772 = L.marker(
+                [-21.20269966, -159.8059998],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_384c4564d3554c66b3153ab17f063772.bindTooltip(
+                `<div>
+                     RAR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ce0622e0b0a14339a2832daea5bcc9a8 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_ce0622e0b0a14339a2832daea5bcc9a8.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_659e0c01e174494d873cbe27f2c4fe89 = L.polyline(
+                [[-21.20269966, -159.8059998], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_659e0c01e174494d873cbe27f2c4fe89.bindTooltip(
+                `<div>
+                     RAR ⇄ PPT 1143.813km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_437fdc266382408781852a9e2d70c23f = L.marker(
+                [-21.20269966, -159.8059998],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_437fdc266382408781852a9e2d70c23f.bindTooltip(
+                `<div>
+                     RAR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b3f76e2a894b42729b0a712662bb86b7 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_b3f76e2a894b42729b0a712662bb86b7.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_22708f2122ec4a7ab360df5733b2e661 = L.polyline(
+                [[-21.20269966, -159.8059998], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_22708f2122ec4a7ab360df5733b2e661.bindTooltip(
+                `<div>
+                     RAR ⇄ PPT 1143.813km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c649e9112794462a8fbc57bcc9a34117 = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_c649e9112794462a8fbc57bcc9a34117.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7daf32b88f244a1aac8ec15dba39f5f4 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_7daf32b88f244a1aac8ec15dba39f5f4.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_157cd422acbe49338fa0f13148b7102f = L.polyline(
+                [[33.94250107, -118.4079971], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_157cd422acbe49338fa0f13148b7102f.bindTooltip(
+                `<div>
+                     LAX ⇄ PPT 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_44e1de43c77840e4ad097bdd0a03f07c = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_44e1de43c77840e4ad097bdd0a03f07c.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ef682467df91417ba72d95eb90407dbf = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_ef682467df91417ba72d95eb90407dbf.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_d3e0f969e0374762808c25fbaa7f67e8 = L.polyline(
+                [[33.94250107, -118.4079971], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_d3e0f969e0374762808c25fbaa7f67e8.bindTooltip(
+                `<div>
+                     LAX ⇄ PPT 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ad65e90e0ef14bceb063852d11216948 = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_ad65e90e0ef14bceb063852d11216948.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_83138d241f1d4aabbd2c70ed6ad1882b = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_83138d241f1d4aabbd2c70ed6ad1882b.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_37f0d24b903a44b39341f0fa8912707a = L.polyline(
+                [[33.94250107, -118.4079971], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_37f0d24b903a44b39341f0fa8912707a.bindTooltip(
+                `<div>
+                     LAX ⇄ PPT 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9127f496025e4e918783bc5bc44b5ca4 = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_9127f496025e4e918783bc5bc44b5ca4.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_13b7509022584a808b2562073f9f7782 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_13b7509022584a808b2562073f9f7782.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_1a6e0d7216ac4d8c81a8197986961adb = L.polyline(
+                [[33.94250107, -118.4079971], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_1a6e0d7216ac4d8c81a8197986961adb.bindTooltip(
+                `<div>
+                     LAX ⇄ PPT 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a3feeb31b6974e289d50c91b25f3d7a7 = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_a3feeb31b6974e289d50c91b25f3d7a7.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a5221b8031544456b151983735266913 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_a5221b8031544456b151983735266913.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_bf07092be3e5426d901e09bd08417bc1 = L.polyline(
+                [[33.94250107, -118.4079971], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_bf07092be3e5426d901e09bd08417bc1.bindTooltip(
+                `<div>
+                     LAX ⇄ PPT 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_565b9a84c4e546ae897409f20e453fbd = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_565b9a84c4e546ae897409f20e453fbd.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4050a24c3a0644e89bbab4931b02e7a4 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_4050a24c3a0644e89bbab4931b02e7a4.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_049e22c6dd0144a38103742de80e261d = L.polyline(
+                [[33.94250107, -118.4079971], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_049e22c6dd0144a38103742de80e261d.bindTooltip(
+                `<div>
+                     LAX ⇄ PPT 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4d11193303b64589a1fa258ca7414f20 = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_4d11193303b64589a1fa258ca7414f20.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1a0e506e9c2649e9a2c171b875bbfc1f = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_1a0e506e9c2649e9a2c171b875bbfc1f.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_7b59a72ce3474b1a903e28d02700859c = L.polyline(
+                [[33.94250107, -118.4079971], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_7b59a72ce3474b1a903e28d02700859c.bindTooltip(
+                `<div>
+                     LAX ⇄ PPT 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_457a53d0d6e349f89af9168238be2e4f = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_457a53d0d6e349f89af9168238be2e4f.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8902e0905ada4f4c81bd8f4354476385 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_8902e0905ada4f4c81bd8f4354476385.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_305ef2c179354af7895cb0c32b354240 = L.polyline(
+                [[33.94250107, -118.4079971], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_305ef2c179354af7895cb0c32b354240.bindTooltip(
+                `<div>
+                     LAX ⇄ PPT 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_82ccce25e1484e528e01e0b759d4c536 = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_82ccce25e1484e528e01e0b759d4c536.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9c7d1420ebfe4333b2983db03f25bfce = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_9c7d1420ebfe4333b2983db03f25bfce.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_2826055959244283b20d3e34b3455f73 = L.polyline(
+                [[33.94250107, -118.4079971], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_2826055959244283b20d3e34b3455f73.bindTooltip(
+                `<div>
+                     LAX ⇄ PPT 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1f7f30eeede14d1c8d48a41666177af3 = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_1f7f30eeede14d1c8d48a41666177af3.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_94c5d8e5946d431a977e8f571b6b3278 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_94c5d8e5946d431a977e8f571b6b3278.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_1d81f808d66941028b58e80e190c288a = L.polyline(
+                [[33.94250107, -118.4079971], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_1d81f808d66941028b58e80e190c288a.bindTooltip(
+                `<div>
+                     LAX ⇄ PPT 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dd04cf7369f0494b906619eb5197ab54 = L.marker(
+                [33.94250107, -118.4079971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_dd04cf7369f0494b906619eb5197ab54.bindTooltip(
+                `<div>
+                     LAX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7a6486b8f7624c1fbbf32e88abc23647 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_7a6486b8f7624c1fbbf32e88abc23647.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_ef8b3bf4ecca44f0810ca2d43a97c41d = L.polyline(
+                [[33.94250107, -118.4079971], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_ef8b3bf4ecca44f0810ca2d43a97c41d.bindTooltip(
+                `<div>
+                     LAX ⇄ PPT 6611.416km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9f00bee37d9f41ba997b16751a7df157 = L.marker(
+                [-16.05410004, -145.6569977],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_9f00bee37d9f41ba997b16751a7df157.bindTooltip(
+                `<div>
+                     FAV
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0199bfcc32b44543afd2d1bfb268cda0 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_0199bfcc32b44543afd2d1bfb268cda0.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_5a0915d3124f4b61a54faa2aa9f89056 = L.polyline(
+                [[-16.05410004, -145.6569977], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_5a0915d3124f4b61a54faa2aa9f89056.bindTooltip(
+                `<div>
+                     FAV ⇄ PPT 452.302km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_84658d46a7dc4f95921d5d13f1f41086 = L.marker(
+                [-17.49, -149.761993],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_84658d46a7dc4f95921d5d13f1f41086.bindTooltip(
+                `<div>
+                     MOZ
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c0bfe3c9283a42c5be17c761b0d9b56b = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_c0bfe3c9283a42c5be17c761b0d9b56b.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_622ebfa837ca482286d2e87dbcf1853c = L.polyline(
+                [[-17.49, -149.761993], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_622ebfa837ca482286d2e87dbcf1853c.bindTooltip(
+                `<div>
+                     MOZ ⇄ PPT 17.897km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a479b8c77cb349748ceb9af377c03879 = L.marker(
+                [21.32062, -157.924228],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_a479b8c77cb349748ceb9af377c03879.bindTooltip(
+                `<div>
+                     HNL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_217db597d14349e6a1c8f65573151ee7 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_217db597d14349e6a1c8f65573151ee7.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_ec1c676df7914556901900aa76004bfa = L.polyline(
+                [[21.32062, -157.924228], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_ec1c676df7914556901900aa76004bfa.bindTooltip(
+                `<div>
+                     HNL ⇄ PPT 4416.599km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_38a1e504069b4c06b02ecb883589a79c = L.marker(
+                [-14.45580006, -145.0249939],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_38a1e504069b4c06b02ecb883589a79c.bindTooltip(
+                `<div>
+                     TKX
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_29a348edd5b84f7f98605b7e6f05576d = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_29a348edd5b84f7f98605b7e6f05576d.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_7889b47d4f974afba5aadfa8aac85bb7 = L.polyline(
+                [[-14.45580006, -145.0249939], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_7889b47d4f974afba5aadfa8aac85bb7.bindTooltip(
+                `<div>
+                     TKX ⇄ PPT 598.69km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ed587b052eef401e95d7d447b623ec70 = L.marker(
+                [-16.68720055, -151.0220032],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_ed587b052eef401e95d7d447b623ec70.bindTooltip(
+                `<div>
+                     HUH
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_db82d72b76014ca88ac3e5988e891f5b = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_db82d72b76014ca88ac3e5988e891f5b.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_ba756fee807445afb26055a138bf34cd = L.polyline(
+                [[-16.68720055, -151.0220032], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_ba756fee807445afb26055a138bf34cd.bindTooltip(
+                `<div>
+                     HUH ⇄ PPT 178.588km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8272da03a09d4a7995687ccffce31c2e = L.marker(
+                [-23.8852005, -147.6620026],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_8272da03a09d4a7995687ccffce31c2e.bindTooltip(
+                `<div>
+                     RVV
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a708ed720d894fb8bf268cbd4d6cda10 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_a708ed720d894fb8bf268cbd4d6cda10.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_b2e2410ad5f84cb09435d66b8a0df44a = L.polyline(
+                [[-23.8852005, -147.6620026], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_b2e2410ad5f84cb09435d66b8a0df44a.bindTooltip(
+                `<div>
+                     RVV ⇄ PPT 732.474km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f94911c8d5c542d48f1eed7095bd3f12 = L.marker(
+                [-27.16480064, -109.4219971],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_f94911c8d5c542d48f1eed7095bd3f12.bindTooltip(
+                `<div>
+                     IPC
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e484f85cca624fb4b1269e26cb8cfccc = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_e484f85cca624fb4b1269e26cb8cfccc.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_5cc048a3d76f44b1a36168eab3988970 = L.polyline(
+                [[-27.16480064, -109.4219971], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_5cc048a3d76f44b1a36168eab3988970.bindTooltip(
+                `<div>
+                     IPC ⇄ PPT 4248.822km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_02c29c8552f043baa210d31a9dedf336 = L.marker(
+                [-18.07480049, -140.9459991],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_02c29c8552f043baa210d31a9dedf336.bindTooltip(
+                `<div>
+                     HOI
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a22f382ae2554483a1fb247526b8646d = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_a22f382ae2554483a1fb247526b8646d.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_6f0329ef5e1947ffba6bb9b6764df47c = L.polyline(
+                [[-18.07480049, -140.9459991], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_6f0329ef5e1947ffba6bb9b6764df47c.bindTooltip(
+                `<div>
+                     HOI ⇄ PPT 918.627km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_00548dd8794d4877a6694dac98583e5b = L.marker(
+                [-14.42809963, -146.2570038],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_00548dd8794d4877a6694dac98583e5b.bindTooltip(
+                `<div>
+                     AHE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_67969cc752534bfa97f4eb8aaa92d8b0 = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_67969cc752534bfa97f4eb8aaa92d8b0.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_e7320e3c3bfa441b8c763c77513d485b = L.polyline(
+                [[-14.42809963, -146.2570038], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_e7320e3c3bfa441b8c763c77513d485b.bindTooltip(
+                `<div>
+                     AHE ⇄ PPT 498.975km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_53c8a35360fd4243b523c7d39b903008 = L.marker(
+                [-16.7229, -151.466003],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_53c8a35360fd4243b523c7d39b903008.bindTooltip(
+                `<div>
+                     RFP
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_63da8f0816c74304b841cd1fe5fc737c = L.marker(
+                [-17.553699, -149.606995],
+                {}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            marker_63da8f0816c74304b841cd1fe5fc737c.bindTooltip(
+                `<div>
+                     PPT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_9fc6c3b5d1d243ba8c72a911656537d2 = L.polyline(
+                [[-16.7229, -151.466003], [-17.553699, -149.606995]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d361078da09147afa1a81ac28787c605);
+        
+    
+            poly_line_9fc6c3b5d1d243ba8c72a911656537d2.bindTooltip(
+                `<div>
+                     RFP ⇄ PPT 218.065km
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>

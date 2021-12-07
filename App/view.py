@@ -211,7 +211,10 @@ def findAirTrafficClusters(skylines):
 
   print("Hay " + str(data[0]) + " aeropuertos/clústeres fuertemente conectados en la red actual")
   print("¿Estan " + info1["Name"] + " y " + info2["Name"] + " conectados?")
-  print("\tRespuesta: " + y("No") if data[1] == False else + y("Sí"))
+  if data[1] == False:
+    print('\tRespuesta:', y('No'))
+  else:
+    print('\tRespuesta:', y('Si'))
 
 #====================================================================#
 #                          REQUERIMIENTO 3                           #
@@ -322,6 +325,10 @@ def compareWebService(skylines):
     print(c.RED + 'Alguna de las ciudades no existe o no existe una ruta disponible' + cs.RESET_ALL)
     return None
 
+  if web is None:
+    print(c.RED + 'El servicio web no encontró aeropuertos' + cs.RESET_ALL)
+    return None
+
   print('\nEl aeropuerto de origen a una distancia de', y(round(info[0]['distance'], 3)) + y('km'), 'de la ciudad de origen es:\n')
   print('\tNombre:', y(info[0]['airport']['Name']))
   print('\tCiudad:', y(info[0]['airport']['City']))
@@ -393,7 +400,7 @@ def printMenu():
   print("7- Comparar con servicio WEB externo")
   print("8- Visualizar gráficamente los requerimientos")
 
-skylines = initSkylines()
+skylines = None
 
 """
 Menu principal
@@ -403,6 +410,7 @@ while True:
   inputs = input('Seleccione una opción para continuar\n> ')
   if int(inputs[0]) == 1:
     print("Cargando información de los archivos ....")
+    skylines = initSkylines()
     loadSkylines(skylines)
     returnInfo(skylines)
   elif int(inputs[0]) == 2:

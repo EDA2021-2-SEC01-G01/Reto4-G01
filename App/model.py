@@ -27,10 +27,6 @@ import copy
 import os
 from math import radians, cos, sin, asin, sqrt, inf
 
-import folium
-
-import DISClib.Algorithms.Graphs.dijsktra as dj
-import DISClib.Algorithms.Graphs.scc as scc
 import config as cf
 from DISClib.ADT import list as lt
 from DISClib.ADT import map as mp
@@ -38,6 +34,9 @@ from DISClib.ADT import orderedmap as om
 from DISClib.ADT import graph as gp
 from DISClib.DataStructures import mapentry as me
 from DISClib.Algorithms.Sorting import mergesort as ms
+from DISClib.Algorithms.Graphs import dijsktra as dj
+import DISClib.Algorithms.Graphs.scc as scc
+from DISClib.DataStructures import edge as e
 import requests
 import folium as fl
 
@@ -66,7 +65,7 @@ def initSkylines():
 
   return skylines
 
-
+# om.get(ARBOl, me.getValue(mp.get(TABLA, tullave))['degree'])
 # Funciones para agregar informacion al catalogo
 
 def addAirport(skylines, airport):
@@ -130,7 +129,7 @@ def addCity(skylines, city):
 
 def connectionPoints(skylines):
   graf = gp.vertices(skylines["digraph"])
-  grafDegrees = mp.newMap(numelements=len(skylines["airportsList"]), maptype="PROBING")
+  grafDegrees = mp.newMap(numelements=len(skylines["airportsList"]), maptype="PROBING", loadfactor=0.5)
   degreesRev = om.newMap()
   
   for airport in lt.iterator(graf):
@@ -148,7 +147,6 @@ def connectionPoints(skylines):
         om.put(degreesRev, degree, entry)   
 
   return (mp.keySet(grafDegrees), degreesRev)
-  
 
 
 # ===================================================
@@ -275,6 +273,15 @@ def findClosest(lst, lat, lng, graph, isDeparture):
 
 def quantifyEffect(skylines, airportIATA):
   """
+  Analize the effect of "delete" or close an airport
+  Args:
+    skylines: The cattalog
+    airportIATA: The IATA code of the airport to search
+
+  Returns: The information of the airport, the affected airports, number of routes in digraph after of delete the airport,
+   number of routes in graph after of delete the airport, deleted routes on digrpah and deleted routes in graph.
+
+  """
   airportEntry = mp.get(skylines['airports'], airportIATA)
 
   if airportEntry is None:
@@ -282,15 +289,10 @@ def quantifyEffect(skylines, airportIATA):
 
   airport = me.getValue(airportEntry)
 
-  skylinesCopy = {
-    'digraph': copy.deepcopy(skylines['digraph']),
-    'graph': copy.deepcopy(skylines['graph']),
-  }
-
   adjacentVertexDigraph = gp.adjacents(skylines['digraph'], airport['IATA'])
 
-  gp.removeVertex(skylinesCopy['digraph'], airport['IATA'])
-  gp.removeVertex(skylinesCopy['graph'], airport['IATA'])
+  noVertexInDigraph = removeVertex(skylines['digraph'], airport['IATA'])
+  noVertexInGraph = removeVertex(skylines['graph'], airport['IATA'])
 
   adjacentAirports = lt.newList('ARRAY_LIST', cmpfunction=compareByIATA)
 
@@ -298,13 +300,10 @@ def quantifyEffect(skylines, airportIATA):
     if lt.isPresent(adjacentAirports, me.getValue(mp.get(skylines['airports'], v))) == 0:
       lt.addLast(adjacentAirports, me.getValue(mp.get(skylines['airports'], v)))
 
-  newDigraphEdges = gp.numEdges(skylinesCopy['digraph'])
-  newGraphEdges = gp.numEdges(skylinesCopy['graph'])
+  newDigraphEdges = gp.numEdges(skylines['digraph']) - lt.size(noVertexInDigraph)
+  newGraphEdges = gp.numEdges(skylines['graph']) - lt.size(noVertexInGraph)
 
-  skylinesCopy = None
-
-  return [airport, adjacentAirports, newDigraphEdges, newGraphEdges]
-  """
+  return [airport, adjacentAirports, newDigraphEdges, newGraphEdges, noVertexInDigraph, noVertexInGraph]
 
 
 # ===================================================
@@ -312,6 +311,16 @@ def quantifyEffect(skylines, airportIATA):
 # ===================================================
 
 def compareWebService(skylines, cityA, cityB):
+  """
+  Connects to AMADEUS API to identify the nearest relevant airports
+  Args:
+    skylines:
+    cityA:
+    cityB:
+
+  Returns:
+
+  """
   url = 'https://test.api.amadeus.com/v1'
 
   ownFunction = shortestRouteBetweenCities(skylines, cityA, cityB)
@@ -347,8 +356,7 @@ def compareWebService(skylines, cityA, cityB):
 
 
   if len(departureAirportWeb['data']) == 0 or len(destinationAirportWeb['data']) == 0:
-    print(departureAirportWeb['data'], destinationAirportWeb['data'])
-    return [None, None]
+    return [ownFunction, None]
 
   webDepartureAirport = me.getValue(mp.get(skylines['airports'], departureAirportWeb['data'][0]['iataCode']))
   webDestinationAirport = me.getValue(mp.get(skylines['airports'], destinationAirportWeb['data'][0]['iataCode']))
@@ -371,9 +379,73 @@ def compareWebService(skylines, cityA, cityB):
 # ===================================================
 
 def viewGraphically(skylines):
-  digraphMap = fl.Map(zoom_start=10)
+  """
+  Allows to select the function that will be illustred in a Map.
+  Args:
+    skylines: The catalog
+
+  Returns: None
+
+  """
+  view = True
+
+  while view:
+    print("1- puntos de interconección aérea")
+    print("2- Ver clústers de tráfico aéreo")
+    print("3- Ver la ruta más corta entre ciudades")
+    print("4- Ver el viaje del viajero al utilizar sus millas")
+    print("5- Ver el efecto de un aeropuerto cerrado")
+    print("6- Salir")
+    inputs = input('Seleccione una opción para continuar\n> ')
+    if int(inputs[0]) == 1:
+      viewConnectionPoints(skylines, 'connection_points')
+    elif int(inputs[0]) == 2:
+      pass
+    elif int(inputs[0]) == 3:
+      viewShortestRouteGraphically(skylines, 'shortest_route')
+    elif int(inputs[0]) == 4:
+      pass
+    elif int(inputs[0]) == 5:
+      viewClosedAirportEffect(skylines, 'closed_effect')
+    elif int(inputs[0]) == 6:
+      view = False
+
+
+def viewConnectionPoints(skylines, filename):
+  data = connectionPoints(skylines)
+  airports = lt.newList(datastructure="ARRAY_LIST")
+
+  for i in lt.iterator(om.valueSet(data[1])):
+    for airport in lt.iterator(i):
+      lt.addLast(airports, airport)
+
+  connectionsMap = fl.Map(zoom_start=5)
+
+  for a in lt.iterator(airports):
+    airport = me.getValue(mp.get(skylines['airports'], a))
+    fl.Marker(location=(airport['Latitude'], airport['Longitude']), tooltip=airport['IATA']).add_to(connectionsMap)
+
+  connectionsMap.save(cf.maps_dir + filename + '.html')
+
+
+def viewShortestRouteGraphically(skylines, filename):
+  """
+  Create an HTML file showing the shortest path on a map.
+  Args:
+    skylines: The catalog
+    filename: The name that will be used for save the file.
+
+  Returns: None
+
+  """
 
   shortest = shortestRouteBetweenCities(skylines, input('Ciudad de inicio (ascii): '), input('Ciudad final (ascii): '))
+
+  if shortest is None:
+    print('Alguna de las ciudades no existe o no existe una ruta')
+    return None
+
+  foliumMap = fl.Map(zoom_start=5)
 
   planes = shortest[2]
 
@@ -391,26 +463,93 @@ def viewGraphically(skylines):
     names.append(airportTwo['IATA'])
 
     for p in range(len(points)):
+      fl.Marker(points[p], tooltip=names[p]).add_to(foliumMap)
+
+    fl.PolyLine(points, tooltip=airportOne['IATA'] + ' ➞ ' + airportTwo['IATA'] + ' ' + str(edge['weight']) + 'km').add_to(foliumMap)
+
+  foliumMap.save(cf.maps_dir + filename + '.html')
+
+
+def viewClosedAirportEffect(skylines, filename):
+  """
+  Create an HTML file showing the effect of close an airport on a map.
+  Args:
+    skylines: The catalog
+    filename: The name that will be used for save the file.
+
+  Returns: None
+
+  """
+
+  effect = quantifyEffect(skylines, input('Ingresa el código IATA del aeropuerto:\n> '))
+
+  if effect is None:
+    print('El Aeropuerto no existe')
+    return None
+
+  digraphMap = fl.Map(zoom_start=10)
+  graphMap = fl.Map(zoom_start=10)
+
+  for ed in lt.iterator(effect[4]):
+    points = []
+    names = []
+    airportOne = me.getValue(mp.get(skylines['airports'], ed['vertexA']))
+    pointA = (float(airportOne['Latitude']), float(airportOne['Longitude']))
+    points.append(pointA)
+    names.append(airportOne['IATA'])
+
+    airportTwo = me.getValue(mp.get(skylines['airports'], ed['vertexB']))
+    pointB = (float(airportTwo['Latitude']), float(airportTwo['Longitude']))
+    points.append(pointB)
+    names.append(airportTwo['IATA'])
+
+    for p in range(len(points)):
       fl.Marker(points[p], tooltip=names[p]).add_to(digraphMap)
 
-    folium.PolyLine(points, tooltip=airportOne['IATA'] + ' ➞ ' + airportTwo['IATA'] + ' ' + str(edge['weight']) + 'km').add_to(digraphMap)
+    fl.PolyLine(points, tooltip=airportOne['IATA'] + ' ➞ ' + airportTwo['IATA'] + ' ' + str(ed['weight']) + 'km').add_to(digraphMap)
 
-  digraphMap.save(cf.maps_dir + 'digraph_map.html')
+  for ed in lt.iterator(effect[5]):
+    points = []
+    names = []
+    airportOne = me.getValue(mp.get(skylines['airports'], ed['vertexA']))
+    pointA = (float(airportOne['Latitude']), float(airportOne['Longitude']))
+    points.append(pointA)
+    names.append(airportOne['IATA'])
 
+    airportTwo = me.getValue(mp.get(skylines['airports'], ed['vertexB']))
+    pointB = (float(airportTwo['Latitude']), float(airportTwo['Longitude']))
+    points.append(pointB)
+    names.append(airportTwo['IATA'])
+
+    for p in range(len(points)):
+      fl.Marker(points[p], tooltip=names[p]).add_to(graphMap)
+
+    fl.PolyLine(points, tooltip=airportOne['IATA'] + ' ⇄ ' + airportTwo['IATA'] + ' ' + str(ed['weight']) + 'km').add_to(graphMap)
+
+  graphMap.save(cf.maps_dir + filename + '_graph.html')
+  digraphMap.save(cf.maps_dir + filename + '_digraph.html')
 
 
 # ===================================================
 #                FUNCIONES DE AYUDA
 # ===================================================
 
+def selectCity(cities):
+  """
+  Displays a menu that allows to choose a city if there are more than one
+  with the same name.
+  Args:
+    cities: City entry
 
-def selectCity(firstCities):
-  if firstCities is None:
+  Returns: The selected city
+
+  """
+  if cities is None:
     return None
-  elif lt.size(me.getValue(firstCities)) > 1:
+  elif lt.size(me.getValue(cities)) > 1:
     print('Ingresa un número según la ciudad de origen que deseas: ')
-    for cityPos in range(1, lt.size(me.getValue(firstCities)) + 1):
-      fiCity = lt.getElement(me.getValue(firstCities), cityPos)
+    for cityPos in range(1, lt.size(me.getValue(cities)) + 1):
+      fiCity = lt.getElement(me.getValue(cities), cityPos)
       print('\n===================================================', cityPos,
             '===================================================\n')
       print('\tCiudad:', fiCity['city'])
@@ -426,20 +565,30 @@ def selectCity(firstCities):
       print('\tID:', fiCity['id'])
 
     citySelected = input('\n> ')
-    finalFirstCity = lt.getElement(me.getValue(firstCities), int(citySelected))
+    finalFirstCity = lt.getElement(me.getValue(cities), int(citySelected))
   else:
-    finalFirstCity = lt.getElement(me.getValue(firstCities), 1)
+    finalFirstCity = lt.getElement(me.getValue(cities), 1)
 
   return finalFirstCity
 
+
 def haversine(lon1, lat1, lon2, lat2):
   """
-    Calculate the great circle distance in kilometers between two points 
-    on the earth (specified in decimal degrees)
+  Calculate the great circle distance in kilometers between two points
+  on the earth (specified in decimal degrees)
 
-    IMPLEMENTACION OBTENIDA DE:
-    https://stackoverflow.com/questions/4913349/haversine-formula-in-python-bearing-and-distance-between-two-gps-points
-    """
+  IMPLEMENTATION OBTAINED FROM:
+  https://stackoverflow.com/questions/4913349/haversine-formula-in-python-bearing-and-distance-between-two-gps-points
+
+  Args:
+    lon1: Longitude of the point A
+    lat1: Latitude of the point A
+    lon2: Longitude of the point B
+    lat2: Latitude of the point B
+
+  Returns: The distance in Kilometers
+
+  """
   # convert decimal degrees to radians
   lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
 
@@ -452,9 +601,39 @@ def haversine(lon1, lat1, lon2, lat2):
   return c * r
 
 
+def removeVertex(graph, vertex):
+  """
+  Get the number of edges that will disappear if vertex is deleted and that edges into a list.
+  Necessary function because the removeVertex function is not implemented in the API
+
+  Args:
+    graph: The graph that will be analized
+    vertex: The vertex that will be searched
+
+  Returns: A list with the edges.
+  """
+  deletedEdges = lt.newList('ARRAY_LIST', e.compareedges)
+  vertices = gp.vertices(graph)
+
+  for v in lt.iterator(vertices):
+    edgesFromV = gp.adjacentEdges(graph, v)
+    for ed in lt.iterator(edgesFromV):
+      if ed['vertexA'] == vertex or ed['vertexB'] == vertex:
+        lt.addLast(deletedEdges, ed)
+
+  return deletedEdges
+
+
 def compareByIATA(e1, e2):
-  if e1['IATA'] > e2['IATA']:
+  """
+  Compare the IATA of two airports
+  Args:
+    e1: First airport to compare
+    e2: Second airport to compare
+
+  Returns: 0 if the airports are the same, and 1 if not
+
+  """
+  if e1['IATA'] > e2['IATA'] or e2['IATA'] > e1['IATA']:
     return 1
-  elif e1['IATA'] < e2['IATA']:
-    return -1
   return 0

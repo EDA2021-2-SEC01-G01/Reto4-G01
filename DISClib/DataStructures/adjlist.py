@@ -106,9 +106,9 @@ def removeVertex(graph, vertex):
     Raises:
         Exception
     """
-    # TODO
-    pass
+    # todo
 
+    pass
 
 def numVertices(graph):
     """

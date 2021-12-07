@@ -31,7 +31,7 @@ from DISClib.DataStructures import mapentry as me
 from colorama import Fore as c
 from colorama import Style as cs
 assert cf
-
+sys.setrecursionlimit(2**20)
 
 """
 La vista se encarga de la interacción con el usuario

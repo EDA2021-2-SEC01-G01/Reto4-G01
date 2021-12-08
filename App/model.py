@@ -35,6 +35,7 @@ from DISClib.ADT import graph as gp
 from DISClib.DataStructures import mapentry as me
 from DISClib.Algorithms.Sorting import mergesort as ms
 from DISClib.Algorithms.Graphs import dijsktra as dj
+import DISClib.Algorithms.Graphs.prim as prim
 import DISClib.Algorithms.Graphs.scc as scc
 from DISClib.DataStructures import edge as e
 import requests
@@ -314,6 +315,12 @@ def findClosest(lst, lat, lng, graph, isDeparture):
 #                  REQUERIMIENTO 4
 # ===================================================
 
+def useTravellerMilles(skylines, milles):
+  mllToKm = milles*1.6
+  pri = prim.PrimMST(skylines["graph"]) 
+  PRI = prim.edgesMST(skylines["graph"], pri)
+
+  return PRI, mllToKm
 
 # ===================================================
 #                  REQUERIMIENTO 5

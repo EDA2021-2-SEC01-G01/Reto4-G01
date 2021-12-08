@@ -261,7 +261,37 @@ def shortestRoute(skylines):
 #====================================================================#
 
 def travelerMilles(skylines):
-  pass
+  milles = int(input("Ingrese la cantidad de millas de las que dispone el viajero:\n> "))
+  pri = (controller.useTravellerMilles(skylines, milles))
+
+  max = 0
+  aero = lt.newList("ARRAY_LIST")
+  for ruta in lt.iterator(pri[0]["mst"]):
+    if not lt.isPresent(aero, ruta["vertexA"]):
+      lt.addLast(aero, ruta["vertexA"])
+    if not lt.isPresent(aero, ruta["vertexB"]):
+      lt.addLast(aero, ruta["vertexB"]) 
+    max += ruta["weight"]
+
+  max = round(max, 2)
+  print("Numero maximo de aeropuertos a los que se puede llegar: "+ y(str(lt.size(aero))))
+  print("Suma de las distancias viajadas entre aeropuertos: " + y(max) + y("(km)"))
+  print("Millas disponibles del viajero convertidas a Kilometros: "+ y(str(pri[1])) + y("(km)"))
+
+  print("\nDistancia recorrida del mayor trayecto: " + y(max))
+  print("Detalles del recorrido mas largo: ")
+  for ruta in lt.iterator(pri[0]["mst"]):
+    print("Aeropuerto de salida: "+ y(ruta["vertexA"]))
+    print("Aeropuerto de llegada: "+ y(ruta["vertexB"]))
+    print("Kilometros entre aeropuertos: "+ y(ruta["weight"]))
+    print("\n------------------------------------------------------------------------\n")
+
+  if max*2 > pri[1]:
+    print("El viajero necesita "+ str((((max*2)-pri[1])/1.6)) + " millas mas para completar el viaje")
+  else:
+    print(str(((pri[1]-(max*2))/1.6)) + " millas sobran despues de realizar el viaje")
+
+
 
 #====================================================================#
 #                          REQUERIMIENTO 5                           #

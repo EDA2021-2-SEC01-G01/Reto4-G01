@@ -73,9 +73,8 @@ def shortestRoute(skylines, city1, city2):
 
 #Req. 4
 
-"""
-AQUI REQUERIMIENTO 4
-"""
+def useTravellerMilles(skylines, milles):
+  return model.useTravellerMilles(skylines, milles)
 
 #Req. 5
 

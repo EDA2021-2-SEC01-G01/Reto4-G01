@@ -23,7 +23,7 @@
  *
  * Dario Correal - Version inicial
  """
-import copy
+
 import os
 from math import radians, cos, sin, asin, sqrt, inf
 
@@ -128,6 +128,14 @@ def addCity(skylines, city):
 # ===================================================
 
 def connectionPoints(skylines):
+  """
+  Find all the connection points in the network
+  Args:
+    skylines: The catalog
+
+  Returns: The connection points
+
+  """
   graf = gp.vertices(skylines["digraph"])
   grafDegrees = mp.newMap(numelements=len(skylines["airportsList"]), maptype="PROBING", loadfactor=0.5)
   degreesRev = om.newMap()
@@ -154,6 +162,16 @@ def connectionPoints(skylines):
 # ===================================================
 
 def findClusters(skylines, IATA1, IATA2):
+  """
+  Reports if two given airports are strongly connected
+  Args:
+    skylines: The catalog
+    IATA1: The IATA of the first airport
+    IATA2: The IATA of the second airport
+
+  Returns: The number of strongly connected airports and if the airports given are strongly connected.
+
+  """
   cc = scc.KosarajuSCC(skylines["digraph"])
   numberOfcc = scc.connectedComponents(cc)
   
@@ -167,6 +185,16 @@ def findClusters(skylines, IATA1, IATA2):
 # ===================================================
 
 def shortestRouteBetweenCities(skylines, firstCity, secondCity):
+  """
+  Find the shortest route between to cities
+  Args:
+    skylines: The catalog
+    firstCity: Departure city
+    secondCity: Destination city
+
+  Returns: The departure airport, the destination airport and the list of routes.
+
+  """
   firstCities = mp.get(skylines['cities'], firstCity)
 
   finalFirstCity = selectCity(firstCities)
@@ -195,8 +223,16 @@ def shortestRouteBetweenCities(skylines, firstCity, secondCity):
 
 def findAirportNearToCity(skylines, city, numberOfSearch, isDeparture):
   """
-  Esta función retorna el aeropuerto más cercano a una ciudad dada
-  y tambien retorna la distancia terrestre de ambos puntos geográficos.
+  This function finds the closest airport to a given city.
+
+  Args:
+    skylines: The catalog
+    city: The city
+    numberOfSearch: Number of iteration
+    isDeparture: Find a departure or destination airport
+
+  Returns: The airport and the distance in kilometers from the city.
+
   """
 
   info = {
@@ -244,6 +280,18 @@ def findAirportNearToCity(skylines, city, numberOfSearch, isDeparture):
 
 
 def findClosest(lst, lat, lng, graph, isDeparture):
+  """
+  Find the closest airport of a longitude and latitude from a list of airports
+  Args:
+    lst: list of airports
+    lat: Latitude that will be used
+    lng: Longitude that will be used
+    graph: Graph that will be used to consult the outdegree or indegree
+    isDeparture: True if airport is departure and false if is destination
+
+  Returns: The closest airport or None
+
+  """
   closest = None
   minDistance = inf
 
@@ -314,13 +362,14 @@ def compareWebService(skylines, cityA, cityB):
   """
   Connects to AMADEUS API to identify the nearest relevant airports
   Args:
-    skylines:
-    cityA:
-    cityB:
+    skylines: The catalog
+    cityA: First city
+    cityB: Second city
 
-  Returns:
-
+  Returns: The shortest route between the cities using API and using the
+  own function
   """
+
   url = 'https://test.api.amadeus.com/v1'
 
   ownFunction = shortestRouteBetweenCities(skylines, cityA, cityB)
@@ -412,6 +461,15 @@ def viewGraphically(skylines):
 
 
 def viewConnectionPoints(skylines, filename):
+  """
+  Create a HTML file showing all the connection points
+  Args:
+    skylines: The catalog
+    filename: The filename that will be used
+
+  Returns: None
+
+  """
   data = connectionPoints(skylines)
   airports = lt.newList(datastructure="ARRAY_LIST")
 
@@ -428,9 +486,23 @@ def viewConnectionPoints(skylines, filename):
   connectionsMap.save(cf.maps_dir + filename + '.html')
 
 
+def viewClusters(skylines, filename):
+  """
+  Create a HTML file showing all strongly connected airports.
+  Args:
+    skylines: The catalog
+    filename: The filename that will be used
+
+  Returns: None
+  """
+  fAirport = input('Ingresa el primer aeropuerto:\n> ')
+  sAirport = input('Ingresa el segundo aeropuerto:\n> ')
+  data = findClusters(skylines, fAirport, sAirport)
+
+
 def viewShortestRouteGraphically(skylines, filename):
   """
-  Create an HTML file showing the shortest path on a map.
+  Create a HTML file showing the shortest path on a map.
   Args:
     skylines: The catalog
     filename: The name that will be used for save the file.

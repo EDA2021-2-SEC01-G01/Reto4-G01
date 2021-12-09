@@ -316,6 +316,15 @@ def findClosest(lst, lat, lng, graph, isDeparture):
 # ===================================================
 
 def useTravellerMilles(skylines, milles):
+  """
+  Search the longest route to follow acording to the limit
+  Args:
+    skylines: The catalog
+    milles: The milles limit
+
+  Returns: The longest route and the limit in kilometers
+
+  """
   mllToKm = milles*1.6
   pri = prim.PrimMST(skylines["graph"]) 
   PRI = prim.edgesMST(skylines["graph"], pri)
@@ -456,11 +465,11 @@ def viewGraphically(skylines):
     if int(inputs[0]) == 1:
       viewConnectionPoints(skylines, 'connection_points')
     elif int(inputs[0]) == 2:
-      pass
+      viewClusters(skylines, 'clusters')
     elif int(inputs[0]) == 3:
       viewShortestRouteGraphically(skylines, 'shortest_route')
     elif int(inputs[0]) == 4:
-      pass
+      viewTravellerMilles(skylines, 'traveller_milles')
     elif int(inputs[0]) == 5:
       viewClosedAirportEffect(skylines, 'closed_effect')
     elif int(inputs[0]) == 6:
@@ -495,7 +504,8 @@ def viewConnectionPoints(skylines, filename):
 
 def viewClusters(skylines, filename):
   """
-  Create a HTML file showing all strongly connected airports.
+  Create a HTML file displaying in red the selected airports if are strongly connected
+  or blue if not.
   Args:
     skylines: The catalog
     filename: The filename that will be used
@@ -505,6 +515,31 @@ def viewClusters(skylines, filename):
   fAirport = input('Ingresa el primer aeropuerto:\n> ')
   sAirport = input('Ingresa el segundo aeropuerto:\n> ')
   data = findClusters(skylines, fAirport, sAirport)
+
+  stronglyConnectedAirports = data[1]
+
+  sccAirportsMap = fl.Map(zoom_start=5)
+  fAirportInfo = me.getValue(mp.get(skylines['airports'], fAirport))
+  sAirportInfo = me.getValue(mp.get(skylines['airports'], sAirport))
+
+  if stronglyConnectedAirports:
+    fl.Marker(icon=fl.Icon(color='red', icon='marker'),
+              tooltip=fAirport,
+              location=(fAirportInfo['Latitude'], fAirportInfo['Longitude']))\
+      .add_to(sccAirportsMap)
+    fl.Marker(icon=fl.Icon(color='red', icon='marker'),
+              tooltip=sAirport,
+              location=(sAirportInfo['Latitude'], sAirportInfo['Longitude']))\
+      .add_to(sccAirportsMap)
+  else:
+    fl.Marker(tooltip=fAirport,
+              location=(fAirportInfo['Latitude'], fAirportInfo['Longitude'])) \
+      .add_to(sccAirportsMap)
+    fl.Marker(tooltip=sAirport,
+              location=(sAirportInfo['Latitude'], sAirportInfo['Longitude'])) \
+      .add_to(sccAirportsMap)
+
+  sccAirportsMap.save(cf.maps_dir + filename + '.html')
 
 
 def viewShortestRouteGraphically(skylines, filename):
@@ -547,6 +582,44 @@ def viewShortestRouteGraphically(skylines, filename):
     fl.PolyLine(points, tooltip=airportOne['IATA'] + ' ➞ ' + airportTwo['IATA'] + ' ' + str(edge['weight']) + 'km').add_to(foliumMap)
 
   foliumMap.save(cf.maps_dir + filename + '.html')
+
+
+def viewTravellerMilles(skylines, filename):
+  """
+  Create an HTML file showing the route of the traveller in a map.
+  Args:
+    skylines: The catalog
+    filename: The filename that will be used
+
+  Returns: None
+  """
+
+  millesLimit = float(input('Ingresa el limite de millas:\n> '))
+  data = useTravellerMilles(skylines, millesLimit)[0]
+
+  travellerMap = fl.Map(zoom_start=5)
+
+  for route in lt.iterator(data['mst']):
+    points = []
+    names = []
+    airportOne = me.getValue(mp.get(skylines['airports'], route['vertexA']))
+    pointA = (float(airportOne['Latitude']), float(airportOne['Longitude']))
+    points.append(pointA)
+    names.append(airportOne['IATA'])
+
+    airportTwo = me.getValue(mp.get(skylines['airports'], route['vertexB']))
+    pointB = (float(airportTwo['Latitude']), float(airportTwo['Longitude']))
+    points.append(pointB)
+    names.append(airportTwo['IATA'])
+
+    for p in range(len(points)):
+      fl.Marker(points[p], tooltip=names[p]).add_to(travellerMap)
+
+    fl.PolyLine(points,
+                tooltip=airportOne['IATA'] + ' ➞ ' + airportTwo['IATA'] + ' ' + str(route['weight']) + 'km').add_to(
+      travellerMap)
+
+  travellerMap.save(cf.maps_dir + filename + '.html')
 
 
 def viewClosedAirportEffect(skylines, filename):

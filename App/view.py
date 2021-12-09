@@ -186,8 +186,8 @@ def findAirConnections(skylines):
 #====================================================================#
 
 def findAirTrafficClusters(skylines):
-  IATA1 = input("Ingrese el Código IATA del primer aeropuerto:\n>")
-  IATA2 = input("Ingrese el Código IATA del segundo aeropuerto:\n>")
+  IATA1 = input("Ingrese el Código IATA del primer aeropuerto:\n> ")
+  IATA2 = input("Ingrese el Código IATA del segundo aeropuerto:\n> ")
 
   data = controller.findClusters(skylines, IATA1, IATA2)
 

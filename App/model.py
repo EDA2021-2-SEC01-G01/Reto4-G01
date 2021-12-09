@@ -423,8 +423,14 @@ def compareWebService(skylines, cityA, cityB):
   if len(departureAirportWeb['data']) == 0 or len(destinationAirportWeb['data']) == 0:
     return [ownFunction, None]
 
-  webDepartureAirport = me.getValue(mp.get(skylines['airports'], departureAirportWeb['data'][0]['iataCode']))
-  webDestinationAirport = me.getValue(mp.get(skylines['airports'], destinationAirportWeb['data'][0]['iataCode']))
+  webDepartureAirportE = mp.get(skylines['airports'], departureAirportWeb['data'][0]['iataCode'])
+  webDestinationAirportE = mp.get(skylines['airports'], destinationAirportWeb['data'][0]['iataCode'])
+
+  if webDepartureAirportE is None or webDestinationAirportE is None:
+    return [ownFunction, None]
+
+  webDepartureAirport = me.getValue(webDepartureAirportE)
+  webDestinationAirport = me.getValue(webDestinationAirportE)
 
   distanceFromCityToDepartureAirport = haversine(float(webDepartureAirport['Longitude']), float(webDepartureAirport['Latitude']), float(city1['lng']), float(city1['lat']))
   distanceFromCityToDestinationAirport = haversine(float(webDestinationAirport['Longitude']), float(webDestinationAirport['Latitude']), float(city2['lng']), float(city2['lat']))

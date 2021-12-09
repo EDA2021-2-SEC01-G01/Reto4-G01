@@ -49,7 +49,7 @@ def initSkylines():
 
 def loadSkylines(skylines):
   print('Serán cargados los archivos por defecto. (Small)')
-  custom = input('Ingresa 1 para ingresar archivos diferentes, 2 para cargar los datos grandes, de lo contrario deja vacio:\n> ')
+  custom = input('Ingresa 1 para ingresar archivos diferentes, 2 para cargar los datos grandes, 3 para un porcentaje especifico, de lo contrario deja vacio:\n> ')
 
   airports = 'airports-utf8-small.csv'
   routes = 'routes-utf8-small.csv'
@@ -58,11 +58,13 @@ def loadSkylines(skylines):
   if '1' in custom:
     airports = input('Ingresa el nombre del archivo de aeropuertos:\n> ')
     routes = input('Ingresa el nombre del archivo de rutas:\n> ')
-    worldcities = input('Ingresa el nombre del archivo de ciudades:\n> ')
   elif '2' in custom:
     airports = 'airports-utf8-large.csv'
     routes = 'routes-utf8-large.csv'
-    worldcities = 'worldcities-utf8.csv'
+  elif '3' in custom:
+    pct = input('Porcentaje: ')
+    airports = 'airports-utf8-' + pct + 'pct.csv'
+    routes = 'routes-utf8-' + pct + 'pct.csv'
 
   controller.loadData(skylines, airports, routes, worldcities)
 

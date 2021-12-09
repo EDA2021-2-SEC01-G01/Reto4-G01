@@ -226,7 +226,7 @@ def shortestRoute(skylines):
 
   info = controller.shortestRoute(skylines, city1, city2)
 
-  if info is None:
+  if info is None or info[2] is None:
     print(c.RED + 'Alguna de las ciudades no existe o no existe una ruta disponible' + cs.RESET_ALL)
     return None
 
